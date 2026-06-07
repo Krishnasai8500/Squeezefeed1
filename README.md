@@ -57,8 +57,9 @@ The platform is built entirely from scratch as a solo project, spanning Java mic
     <td align="center"><img src="assets/screenshot-profile1.png" width="180"/><br/><sub>profile page</sub></td>
     <td align="center"><img src="assets/screenshot-profile2.png" width="180"/><br/><sub>Profile page bottom</sub></td>
     <td align="center"><img src="assets/screenshot-badges.png" width="180"/><br/><sub>Badges Page</sub></td>
-    <td align="center"><img src="assets/screenshot-profile.png" width="180"/><br/><sub>User profile</sub></td>
-    <td align="center"><img src="assets/screenshot-badges.png" width="180"/><br/><sub>Badge collection</sub></td>
+    <td align="center"><img src="assets/screenshot-settings-pre.png" width="180"/><br/><sub>User profile</sub></td>
+    <td align="center"><img src="assets/screenshot-settings-account.png" width="180"/><br/><sub>Badge collection</sub></td>
+     <td align="center"><img src="assets/screenshot-feedback.png" width="180"/><br/><sub>Badge collection</sub></td>
   </tr>
   <tr>
     <td align="center"><img src="assets/screenshot-onboarding.png" width="180"/><br/><sub>Onboarding</sub></td>
