@@ -50,8 +50,13 @@ The platform is built entirely from scratch as a solo project, spanning Java mic
 
 <table>
   <tr>
-    <td align="center"><img src="assets/screenshot-feed.png" width="180"/><br/><sub>News feed</sub></td>
-    <td align="center"><img src="assets/screenshot-article.png" width="180"/><br/><sub>Article view</sub></td>
+    <td align="center"><img src="assets/screenshot-registration.png" width="180"/><br/><sub>Registration Page</sub></td>
+    <td align="center"><img src="assets/screenshot-login.png" width="180"/><br/><sub>Login Page</sub></td>
+    <td align="center"><img src="assets/screenshot-search.png" width="180"/><br/><sub>Search Page</sub></td>
+    <td align="center"><img src="assets/screenshot-notification.png" width="180"/><br/><sub>Notification Page</sub></td>
+    <td align="center"><img src="assets/screenshot-profile1.png" width="180"/><br/><sub>profile page</sub></td>
+    <td align="center"><img src="assets/screenshot-profile2.png" width="180"/><br/><sub>Profile page bottom</sub></td>
+    <td align="center"><img src="assets/screenshot-badges.png" width="180"/><br/><sub>Badges Page</sub></td>
     <td align="center"><img src="assets/screenshot-profile.png" width="180"/><br/><sub>User profile</sub></td>
     <td align="center"><img src="assets/screenshot-badges.png" width="180"/><br/><sub>Badge collection</sub></td>
   </tr>
