@@ -1,0 +1,15 @@
+spring:
+
+  config:
+    import: "optional:configserver:"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: https://service-registry-latest-n6dg.onrender.com/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -1,0 +1,82 @@
+version: '3.8'
+
+services:
+
+  service-registry:
+    build: ./SERVICE-REGISTRY
+    container_name: service-registry
+    ports:
+      - "8761:8761"
+
+  config-server:
+    build: ./CONFIG-SERVER
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    depends_on:
+      - service-registry
+    volumes:
+      - D:/News App Final/config-repo:/config-repo
+
+  api-gateway:
+    build: ./API-GATEWAY
+    container_name: api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - service-registry
+      - config-server
+
+  auth-service:
+    build: ./AUTH-SERVICE
+    container_name: auth-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - service-registry
+      - config-server
+
+  user-service:
+    build: ./USER-SERVICE
+    container_name: user-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - service-registry
+      - config-server
+
+  content-service:
+    build: ./CONTENT-SERVICE
+    container_name: content-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      - service-registry
+      - config-server
+
+  news-orchestration-service:
+    build: ./NEWS-ORCHESTRATION-SERVICE
+    container_name: news-orchestration-service
+    ports:
+      - "8084:8084"
+    depends_on:
+      - service-registry
+      - config-server
+
+  admin-service:
+    build: ./ADMIN-SERVICE
+    container_name: admin-service
+    ports:
+      - "8085:8085"
+    depends_on:
+      - service-registry
+      - config-server
+
+  media-service:
+    build: ./MEDIA-SERVICE
+    container_name: media-service
+    ports:
+      - "8089:8089"
+    depends_on:
+      - service-registry
+      - config-server

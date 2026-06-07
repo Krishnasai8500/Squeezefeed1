@@ -1,0 +1,46 @@
+# Java
+target/
+*.class
+
+# Node
+node_modules/
+dist/
+
+# Environment
+.env
+.env.*
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Android
+android/.gradle/
+android/build/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Spring configs
+application.yaml
+application.yml
+application.properties
+application-docker.yml
+
+application-local.yml
+
+**/application.yaml
+**/application.yml
+**/application.properties
+**/application-docker.yml
+
+**/application-local.yml

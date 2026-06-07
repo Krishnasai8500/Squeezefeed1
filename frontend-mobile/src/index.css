@@ -1,0 +1,57 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #111;
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+html,
+body,
+#root {
+  width: 100vw; /* ← vw instead of % */
+  max-width: 100vw; /* ← prevent overflow */
+  overflow-x: hidden;
+}
+
+#root {
+  display: block !important;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 149, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(255, 149, 0, 1);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 149, 0, 0.5);
+  }
+}
