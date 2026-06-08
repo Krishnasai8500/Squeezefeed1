@@ -10,7 +10,7 @@
 [![React](https://img.shields.io/badge/Frontend-React%20%2B%20Capacitor-61dafb)](https://react.dev)
 [![Android](https://img.shields.io/badge/Mobile-Android%20APK-3ddc84)](https://developer.android.com)
 
-[![Download APK](https://img.shields.io/badge/Download-Android%20APK-3ddc84?style=for-the-badge&logo=android)](https://github.com/Krishnasai8500/squeezefeed/releases/download/v1.0.0/app-debug.apk)
+[![Download APK](https://img.shields.io/badge/Download-Android%20APK-3ddc84?style=for-the-badge&logo=android)](assets/app-debug.apk)
 
 </div>
 
