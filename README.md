@@ -40,7 +40,7 @@ The platform is built entirely from scratch as a solo project, spanning Java mic
 <a id="download"></a>
 
 <!-- PLACEHOLDER: Replace href with your actual APK download link -->
-[![Download APK](https://img.shields.io/badge/Download-Android%20APK-3ddc84?style=for-the-badge&logo=android)](assets/squeezefeed.apk)
+[![Download APK](https://img.shields.io/badge/Download%20Android%20APK-3ddc84?style=for-the-badge&logo=android)](https://github.com/Krishnasai8500/Squeezefeed1/releases/download/v1.0.0/app-debug.apk)
 
 > Android 8.0+ required. Allow installation from unknown sources.
 
