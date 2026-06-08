@@ -35,8 +35,8 @@ public class AuthService {
     private final RestTemplate restTemplate;
     private final KafkaProducerService kafkaProducerService;
     private final EmailOtpService emailOtpService;
-    @Value("${user.service.url}")
-    private String userServiceUrl;
+//    @Value("${user.service.url}")
+//    private String userServiceUrl;
 
     @Value("${google.client-id}")
     private String googleClientId;
@@ -96,7 +96,8 @@ public class AuthService {
         try {
 
             restTemplate.postForObject(
-                    userServiceUrl + "/api/users/profile",
+//                    userServiceUrl + "/api/users/profile",
+                    "http://localhost:8082/api/users/profile",
                     profileRequest,
                     UserResponse.class
             );
