@@ -65,7 +65,7 @@ The platform is built entirely from scratch as a solo project, spanning Java mic
     <td align="center"><img src="assets/screenshot-onboarding.png" width="180"/><br/><sub>Onboarding</sub></td>
     <td align="center"><img src="assets/screenshot-meme.png" width="180"/><br/><sub>Meme-style article</sub></td>
     <td align="center"><img src="assets/screenshot-comments.png" width="180"/><br/><sub>Comments drawer</sub></td>
-    <td align="center"><img src="assets/screenshot-admin.png" width="180"/><br/><sub>Admin analytics</sub></td>
+    <td align="center"><img src="assets/screenshot-adminAnalytics.png" width="180"/><br/><sub>Admin analytics</sub></td>
   </tr>
 </table>
 
