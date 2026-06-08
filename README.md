@@ -22,18 +22,7 @@ SqueezeFeed is a full-stack, production-deployed news aggregation and social pla
 
 The platform is built entirely from scratch as a solo project, spanning Java microservices, Python AI pipelines, a React/Capacitor Android app, Kafka event streaming, Celery task scheduling, and Cloudflare tunnel infrastructure.
 
----
 
-## Live Demo
-
-> **Video walkthrough**
-
-<!-- PLACEHOLDER: Replace with your actual demo video embed or GIF -->
-[![SqueezeFeed Demo](assets/demo-thumbnail.png)](assets/demo.mp4)
-
-> *Click the image above to watch the full platform walkthrough.*
-
----
 
 ## Download
 
