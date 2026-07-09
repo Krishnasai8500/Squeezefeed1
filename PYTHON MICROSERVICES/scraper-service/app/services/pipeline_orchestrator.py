@@ -112,6 +112,7 @@ def process_rss_pipeline(
         )
         full_article["tags"] = [category, "Breaking News"] if category else ["General", "Breaking News"]
         full_article["source_name"] = source_name
+        full_article["category"] = category
 
         if not full_article.get("image_url"):
             full_article["image_url"] = "https://placehold.co/1280x720?text=NewsAI"
