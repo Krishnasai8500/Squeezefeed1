@@ -306,6 +306,98 @@ services:
       - default
       - squeezefeed-network
 
+  scraper-service:
+    build:
+      context: ./PYTHON MICROSERVICES/scraper-service
+
+    container_name: scraper-service
+
+    restart: unless-stopped
+
+    ports:
+      - "8001:8001"
+
+    depends_on:
+      - redis
+
+    networks:
+      - default
+      - squeezefeed-network
+
+
+  sentiment-service:
+    build:
+      context: ./PYTHON MICROSERVICES/sentiment-service
+
+    container_name: sentiment-service
+
+    restart: unless-stopped
+
+    ports:
+      - "8002:8002"
+
+    depends_on:
+      - redis
+
+    networks:
+      - default
+      - squeezefeed-network
+
+
+  humanization-service:
+    build:
+      context: ./PYTHON MICROSERVICES/humanization-service
+
+    container_name: humanization-service
+
+    restart: unless-stopped
+
+    ports:
+      - "8003:8003"
+
+    depends_on:
+      - redis
+
+    networks:
+      - default
+      - squeezefeed-network
+
+
+  celery-worker:
+    build:
+      context: ./PYTHON MICROSERVICES/scraper-service
+
+    container_name: celery-worker
+
+    restart: unless-stopped
+
+    command: celery -A app.workers.celery_worker.celery_app worker --pool=solo --loglevel=info
+
+    depends_on:
+      - redis
+
+    networks:
+      - default
+      - squeezefeed-network
+
+
+  celery-beat:
+    build:
+      context: ./PYTHON MICROSERVICES/scraper-service
+
+    container_name: celery-beat
+
+    restart: unless-stopped
+
+    command: celery -A app.workers.celery_worker.celery_app beat --loglevel=info
+
+    depends_on:
+      - redis
+
+    networks:
+      - default
+      - squeezefeed-network
+
 
 volumes:
   postgres_data:
