@@ -37,12 +37,14 @@ def scrape_content(
         # RSS FEED SCRAPING
         if request.rss_feed_url:
 
-            articles = process_rss_pipeline(
+            pipeline_result = process_rss_pipeline(
                 str(request.rss_feed_url),
                 db,
                 request.category,
                 request.source_name
             )
+
+            articles = pipeline_result["processed_articles"]
 
             saved_articles = []
 
@@ -74,6 +76,8 @@ def scrape_content(
             return {
                 "source": "rss",
                 "saved_articles": len(saved_articles),
+                "total_scraped": pipeline_result["total_scraped"],
+                "duplicates_skipped": pipeline_result["duplicates_skipped"],
                 "articles": saved_articles
             }
 
