@@ -9,6 +9,8 @@ from app.services.translator import translate_to_english, translate_to_telugu
 load_dotenv()
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
+MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
+
 # ── Tone map (kept tight — every token counts) ───────────────────────────────
 TONE_PROMPTS = {
     "aggressive":   "Urgent, punchy. Lead with the most shocking fact. Short sentences.",
@@ -129,7 +131,7 @@ def rewrite_content(title: str, content: str, tone: str = "professional") -> dic
         time.sleep(6)
 
         response = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
+            model=MODEL,
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user",   "content": user_prompt},
