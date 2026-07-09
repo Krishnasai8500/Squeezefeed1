@@ -357,7 +357,9 @@ services:
     restart: unless-stopped
 
     environment:
+      ENV: docker
       GROQ_API_KEY: ${GROQ_API_KEY}
+      GROQ_MODEL: ${GROQ_MODEL}
 
     ports:
       - "8003:8003"
