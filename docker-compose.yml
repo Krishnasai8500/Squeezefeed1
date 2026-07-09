@@ -114,6 +114,30 @@ services:
       - squeezefeed-network
 
 
+  auth-service:
+    build:
+      context: ./JAVA MICROSERVICES/AUTH-SERVICE
+
+    container_name: auth-service
+
+    restart: unless-stopped
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    ports:
+      - "8081:8081"
+
+    depends_on:
+      - service-registry
+      - postgres
+      - kafka
+
+    networks:
+      - default
+      - squeezefeed-network
+
+
 volumes:
   postgres_data:
 
