@@ -133,7 +133,7 @@ export default function HomePage() {
     // Saved articles cache (non-blocking)
     if (authUserId) {
       axios
-        .get(`https://api.nxtbharat.com/api/content/saved/${authUserId}`, {
+        .get(`https://api.squeezefeed.com/api/content/saved/${authUserId}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => {

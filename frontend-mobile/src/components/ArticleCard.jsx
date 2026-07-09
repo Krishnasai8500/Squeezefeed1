@@ -113,7 +113,7 @@ export default function ArticleCard({
             const token = localStorage.getItem("token");
             axios
               .post(
-                `https://api.nxtbharat.com/api/users/track/read/${authUserId}`,
+                `https://api.squeezefeed.com/api/users/track/read/${authUserId}`,
                 {},
                 { headers: { Authorization: `Bearer ${token}` } },
               )
@@ -177,7 +177,7 @@ export default function ArticleCard({
 
           axios
             .post(
-              `https://api.nxtbharat.com/api/users/track/impression/${authUserId}`,
+              `https://api.squeezefeed.com/api/users/track/impression/${authUserId}`,
               {
                 contentId: article.id,
               },
@@ -440,7 +440,7 @@ export default function ArticleCard({
                       const token = localStorage.getItem("token");
                       try {
                         await axios.put(
-                          `https://api.nxtbharat.com/api/content/admin/${article.id}/remove`,
+                          `https://api.squeezefeed.com/api/content/admin/${article.id}/remove`,
                           {},
                           { headers: { Authorization: `Bearer ${token}` } },
                         );
@@ -618,7 +618,7 @@ export default function ArticleCard({
                 }
                 try {
                   await axios.post(
-                    "https://api.nxtbharat.com/api/reports",
+                    "https://api.squeezefeed.com/api/reports",
                     {
                       contentId: article.id,
                       reason: reportReason,

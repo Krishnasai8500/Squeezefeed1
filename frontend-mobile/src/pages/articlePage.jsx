@@ -107,7 +107,7 @@ export default function ArticlePage() {
         const shareKey = `shared_${id}_${refUser}`;
         if (!localStorage.getItem(shareKey)) {
           axios
-            .post(`https://api.nxtbharat.com/api/users/track/share/${refUser}`)
+            .post(`https://api.squeezefeed.com/api/users/track/share/${refUser}`)
             .then(() => localStorage.setItem(shareKey, "true"))
             .catch(console.error);
         }
@@ -115,7 +115,7 @@ export default function ArticlePage() {
 
       if (authUserId) {
         axios
-          .post(`https://api.nxtbharat.com/api/users/track/read/${authUserId}`)
+          .post(`https://api.squeezefeed.com/api/users/track/read/${authUserId}`)
           .catch(console.error);
       }
     }, 6000);

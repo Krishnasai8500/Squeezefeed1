@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { showToast } from "../components/Toast";
-const BASE_URL = "https://api.nxtbharat.com";
+const BASE_URL = "https://api.squeezefeed.com";
 
 const LANGUAGES = [
   { value: "ENGLISH", flag: "🇮🇳", label: "English" },

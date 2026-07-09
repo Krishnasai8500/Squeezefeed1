@@ -93,7 +93,7 @@ export default function BottomNav() {
 
     axios
       .get(
-        `https://api.nxtbharat.com/api/notifications/user/${authUserId}/unread`,
+        `https://api.squeezefeed.com/api/notifications/user/${authUserId}/unread`,
         { headers: { Authorization: `Bearer ${token}` } },
       )
       .then((res) => setUnreadCount((res.data || []).length))

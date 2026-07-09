@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import BottomNav from "../components/bottomNav";
 
-const BASE_URL = "https://api.nxtbharat.com";
+const BASE_URL = "https://api.squeezefeed.com";
 
 function SqueezeMark({ size = 16 }) {
   return (

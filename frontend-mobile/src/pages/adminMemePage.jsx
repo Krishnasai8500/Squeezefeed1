@@ -3,7 +3,7 @@ import axios from "axios";
 import Navbar from "../components/navbar";
 import BottomNav from "../components/bottomNav";
 
-const BASE_URL = "https://api.nxtbharat.com";
+const BASE_URL = "https://api.squeezefeed.com";
 const CACHE_TTL_MS = 2 * 60 * 1000;
 
 const cache = { articles: null, publishedMemes: null, fetchedAt: null };

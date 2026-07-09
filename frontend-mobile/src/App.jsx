@@ -94,7 +94,7 @@ export default function App() {
     const token = localStorage.getItem("token");
     if (!token) return;
 
-    fetch("https://api.nxtbharat.com/api/content/memes", {
+    fetch("https://api.squeezefeed.com/api/content/memes", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((r) => r.json())

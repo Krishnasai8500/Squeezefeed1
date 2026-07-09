@@ -11,7 +11,7 @@ export default function AdminReportsPage() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get("https://api.nxtbharat.com/api/reports/admin", {
+      .get("https://api.squeezefeed.com/api/reports/admin", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -26,7 +26,7 @@ export default function AdminReportsPage() {
     const token = localStorage.getItem("token");
     try {
       await axios.delete(
-        `https://api.nxtbharat.com/api/reports/admin/${reportId}`,
+        `https://api.squeezefeed.com/api/reports/admin/${reportId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },

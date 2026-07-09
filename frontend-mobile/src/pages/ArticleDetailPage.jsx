@@ -3,7 +3,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../components/navbar";
 
-const BASE_URL = "https://api.nxtbharat.com";
+const BASE_URL = "https://api.squeezefeed.com";
 
 // ─── Vibe strings pool ────────────────────────────────────────────────────────
 const VIBE_STRINGS = [

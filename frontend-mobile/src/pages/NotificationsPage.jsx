@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import BottomNav from "../components/bottomNav";
 
-const BASE_URL = "https://api.nxtbharat.com";
+const BASE_URL = "https://api.squeezefeed.com";
 
 const TYPE_META = {
   BADGE: { icon: "🏆", color: "#FF6A00", label: "Achievement" },

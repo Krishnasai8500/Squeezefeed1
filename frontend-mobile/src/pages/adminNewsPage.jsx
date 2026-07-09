@@ -102,7 +102,7 @@ const getLangStr = (lang) => {
 function apiClient() {
   const token = localStorage.getItem("token");
   return axios.create({
-    baseURL: "https://api.nxtbharat.com/api/content",
+    baseURL: "https://api.squeezefeed.com/api/content",
     headers: { Authorization: `Bearer ${token}` },
   });
 }

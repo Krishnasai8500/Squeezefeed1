@@ -7,7 +7,7 @@ import {
   getCachedSrc,
   preloadAndCache,
 } from "../services/imageCache";
-const BASE_URL = "https://api.nxtbharat.com";
+const BASE_URL = "https://api.squeezefeed.com";
 
 const getImageUrl = (meme) =>
   meme?.imageUrl?.replace(

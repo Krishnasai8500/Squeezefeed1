@@ -6,8 +6,8 @@ import ArticleCard from "../components/ArticleCard";
 import { setSavedCache } from "../services/savedCache";
 import BottomNav from "../components/bottomNav";
 
-// const BASE_URL = "https://api.nxtbharat.com";
-const BASE_URL = "https://api.nxtbharat.com";
+// const BASE_URL = "https://api.squeezefeed.com";
+const BASE_URL = "https://api.squeezefeed.com";
 
 export default function SavedPage() {
   const navigate = useNavigate();

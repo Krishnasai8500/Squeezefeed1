@@ -4,8 +4,8 @@ import axios from "axios";
 import { likePublicProfile, trackProfileView } from "../services/api";
 import BottomNav from "../components/bottomNav";
 
-// const BASE_URL = "https://api.nxtbharat.com";
-const BASE_URL = "https://api.nxtbharat.com";
+// const BASE_URL = "https://api.squeezefeed.com";
+const BASE_URL = "https://api.squeezefeed.com";
 
 // ── Badge meta ───────────────────────────────────────────────
 const BADGE_META = {

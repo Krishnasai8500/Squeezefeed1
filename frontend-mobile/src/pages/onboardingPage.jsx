@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Geolocation } from "@capacitor/geolocation";
 
-const BASE_URL = "https://api.nxtbharat.com";
+const BASE_URL = "https://api.squeezefeed.com";
 
 const LANGUAGES = ["ENGLISH", "TELUGU"];
 

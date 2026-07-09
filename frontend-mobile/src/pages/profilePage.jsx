@@ -4,7 +4,7 @@ import axios from "axios";
 import BadgeUnlockPopup from "../components/BadgeUnlockPopup";
 import BottomNav from "../components/bottomNav";
 
-const BASE_URL = "https://api.nxtbharat.com";
+const BASE_URL = "https://api.squeezefeed.com";
 
 // ── Badge meta ───────────────────────────────────────────────
 const BADGE_META = {

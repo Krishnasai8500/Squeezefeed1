@@ -3,7 +3,7 @@ import axios from "axios";
 import Navbar from "../components/navbar";
 import confetti from "canvas-confetti";
 
-const BASE_URL = "https://api.nxtbharat.com";
+const BASE_URL = "https://api.squeezefeed.com";
 
 // ── Confetti helper ──────────────────────────────────────────
 const fireConfetti = () => {
