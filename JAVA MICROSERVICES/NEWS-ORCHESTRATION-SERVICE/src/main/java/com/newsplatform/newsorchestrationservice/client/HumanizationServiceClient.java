@@ -14,8 +14,12 @@ public class HumanizationServiceClient {
 
     private final RestTemplate restTemplate;
 
+//    localrun
+//    private static final String HUMANIZATION_SERVICE_URL =
+//            "http://localhost:8003/humanize/";
+
     private static final String HUMANIZATION_SERVICE_URL =
-            "http://localhost:8003/humanize/";
+            "http://humanization-service:8003/humanize/";
 
     public ProcessedArticleResponse humanizeContent(
             ScrapedArticleRequest article

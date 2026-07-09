@@ -230,7 +230,9 @@
 
             UserProfileResponse profile = null;
             try {
-                String profileUrl = "http://localhost:8082/api/users/profile/" + authUserId;
+                //localrun
+//                String profileUrl = "http://localhost:8082/api/users/profile/" + authUserId;
+                String profileUrl = "http://user-service:8082/api/users/profile/" + authUserId;
                 profile = restTemplate.getForObject(profileUrl, UserProfileResponse.class);
             } catch (Exception e) {
                 System.out.println("Could not fetch user profile: " + e.getMessage());
@@ -506,9 +508,14 @@
         public List<ContentResponse> getSavedArticles(
                 Long authUserId
         ) {
-    
+
+            //localrun
+//            String url =
+//                    "http://localhost:8082/api/users/saved/"
+//                            + authUserId;
+
             String url =
-                    "http://localhost:8082/api/users/saved/"
+                    "http://user-service:8082/api/users/saved/"
                             + authUserId;
     
             UserProfileResponse profile =
@@ -555,8 +562,14 @@
                     .username(request.getUsername())
                     .commentText(request.getCommentText())
                     .build();
+
+            //localrun
+//            String trackUrl =
+//                    "http://localhost:8082/api/users/track/comment/"
+//                            + request.getAuthUserId();
+
             String trackUrl =
-                    "http://localhost:8082/api/users/track/comment/"
+                    "http://user-service:8082/api/users/track/comment/"
                             + request.getAuthUserId();
     
             try {

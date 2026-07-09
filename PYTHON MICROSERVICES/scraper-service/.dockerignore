@@ -11,7 +11,7 @@ __pycache__
 
 .env
 .env.local
-.env.docker
+
 .env.prod
 
 logs

@@ -19,9 +19,15 @@ public class KafkaProducerConfig {
 
         Map<String, Object> config = new HashMap<>();
 
+        //localrun
+//        config.put(
+//                ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
+//                "localhost:9092"
+//        );
+
         config.put(
                 ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "localhost:9092"
+                "kafka:9092"
         );
 
         config.put(

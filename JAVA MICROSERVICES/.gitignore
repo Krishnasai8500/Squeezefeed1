@@ -34,13 +34,13 @@ venv/
 application.yaml
 application.yml
 application.properties
-application-docker.yml
+
 
 application-local.yml
 
 **/application.yaml
 **/application.yml
 **/application.properties
-**/application-docker.yml
+
 
 **/application-local.yml

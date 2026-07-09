@@ -14,8 +14,13 @@ public class ScraperServiceClient {
 
     private final RestTemplate restTemplate;
 
+    //localrun
+//    private static final String SCRAPER_SERVICE_URL =
+//            "http://localhost:8001/scrape/articles/candidates";
+
     private static final String SCRAPER_SERVICE_URL =
-            "http://localhost:8001/scrape/articles/candidates";
+            "http://scraper-service:8001/scrape/articles/candidates";
+
 
     public List<ScrapedArticleRequest> fetchLatestNews() {
 
@@ -36,8 +41,14 @@ public class ScraperServiceClient {
 
     public void markArticleProcessed(Long articleId) {
 
+        //localrun
+//        String url =
+//                "http://localhost:8001/scrape/articles/"
+//                        + articleId +
+//                        "/processed";
+
         String url =
-                "http://localhost:8001/scrape/articles/"
+                "http://scraper-service:8001/scrape/articles/"
                         + articleId +
                         "/processed";
 

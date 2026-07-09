@@ -37,6 +37,7 @@ from app.core.config import settings
 from app.core.logging import logger
 from app.api.scrape_routes import router as scrape_router
 from app.db.database import Base, engine
+from app.api.meme_routes import router as meme_router
 from app.db import models
 # from app.core.scheduler import start_scheduler
 
@@ -48,7 +49,7 @@ app = FastAPI(
 )
 
 app.include_router(scrape_router)
-
+app.include_router(meme_router)
 #
 # @app.on_event("startup")
 # async def startup_event():

@@ -659,9 +659,15 @@ public class UserProfileServiceImpl implements UserProfileService {
             body.put("isRead",          false);
 
             HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
+//              localrun
+//            restTemplate.postForObject(
+//                    "http://localhost:8087/api/notifications", // ← your notification service port
+//                    request,
+//                    Object.class
+//            );
 
             restTemplate.postForObject(
-                    "http://localhost:8087/api/notifications", // ← your notification service port
+                    "http://notification-service:8087/api/notifications", // ← your notification service port
                     request,
                     Object.class
             );

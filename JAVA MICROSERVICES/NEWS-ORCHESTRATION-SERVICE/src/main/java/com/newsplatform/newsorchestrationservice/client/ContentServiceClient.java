@@ -14,8 +14,13 @@ public class ContentServiceClient {
     private final RestTemplate restTemplate;
     private final JwtService jwtService;
 
-    private static final String CONTENT_SERVICE_URL =
-            "http://localhost:8083/api/content/admin";
+    //localrun
+
+//    private static final String CONTENT_SERVICE_URL =
+//            "http://localhost:8083/api/content/admin";
+
+    private static final  String CONTENT_SERVICE_URL =
+            "http://content-service:8083/api/content/admin";
 
     public void publishContent(
             ContentPublishRequest request,

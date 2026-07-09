@@ -58,3 +58,56 @@ class ScrapedArticle(Base):
     )
 
     language = Column(String, default="ENGLISH")
+
+class RedditMeme(Base):
+    __tablename__ = "reddit_memes"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    reddit_id = Column(
+        String,
+        unique=True,
+        nullable=False
+    )
+
+    title = Column(
+        Text,
+        nullable=False
+    )
+
+    image_url = Column(
+        Text,
+        nullable=True
+    )
+
+    subreddit = Column(
+        String,
+        nullable=False
+    )
+
+    upvotes = Column(
+        Integer,
+        default=0
+    )
+
+    comments = Column(
+        Integer,
+        default=0
+    )
+
+    permalink = Column(
+        Text,
+        nullable=True
+    )
+
+    is_used = Column(
+        Boolean,
+        default=False
+    )
+
+    created_at = Column(
+        DateTime(timezone=True),
+        server_default=func.now()
+    )
+    viral_score = Column(Float, default=0.0)
+    content = Column(Text, nullable=True)

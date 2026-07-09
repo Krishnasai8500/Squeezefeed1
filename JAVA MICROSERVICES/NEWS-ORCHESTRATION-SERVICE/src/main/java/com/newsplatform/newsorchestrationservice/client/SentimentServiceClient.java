@@ -12,8 +12,13 @@ public class SentimentServiceClient {
 
     private final RestTemplate restTemplate;
 
+
+    //localrun
+//    private static final String SENTIMENT_SERVICE_URL =
+//            "http://localhost:8002/sentiment/analyze";
+
     private static final String SENTIMENT_SERVICE_URL =
-            "http://localhost:8002/sentiment/analyze";
+            "http://sentiment-service:8002/sentiment/analyze";
 
     public SentimentServiceClient(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;

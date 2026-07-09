@@ -1,7 +1,9 @@
 import requests
 
+#localrun
+# SENTIMENT_SERVICE_URL = "http://localhost:8002/sentiment/analyze"
 
-SENTIMENT_SERVICE_URL = "http://localhost:8002/sentiment/analyze"
+SENTIMENT_SERVICE_URL = "http://sentiment-service:8002/sentiment/analyze"
 
 
 def analyze_article_sentiment(

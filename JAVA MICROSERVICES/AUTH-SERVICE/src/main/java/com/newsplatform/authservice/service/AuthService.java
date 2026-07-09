@@ -97,7 +97,9 @@ public class AuthService {
 
             restTemplate.postForObject(
 //                    userServiceUrl + "/api/users/profile",
-                    "http://localhost:8082/api/users/profile",
+                    //localrun
+//                    "http://localhost:8082/api/users/profile",
+                    "http://user-service:8082/api/users/profile",
                     profileRequest,
                     UserResponse.class
             );

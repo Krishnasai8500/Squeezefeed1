@@ -1,0 +1,44 @@
+spring:
+
+  config:
+    import: "optional:configserver:http://config-server:8888"
+
+  kafka:
+    bootstrap-servers: kafka:9092
+
+  datasource:
+    url: jdbc:postgresql://postgres:5432/news_auth_db
+    username: newsadmin
+    password: root
+    driver-class-name: org.postgresql.Driver
+
+    hikari:
+      maximum-pool-size: 3
+      minimum-idle: 1
+      idle-timeout: 30000
+      max-lifetime: 1800000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    show-sql: false
+
+resend:
+  api-key: ${RESEND_API_KEY}
+  from-email: otp@squeezefeed.com
+
+eureka:
+  instance:
+    prefer-ip-address: true
+
+  client:
+    service-url:
+      defaultZone: http://service-registry:8761/eureka/
+
+google:
+  client-id: ${GOOGLE_CLIENT_ID}
+
+user:
+  service:
+    url: http://user-service:8082
