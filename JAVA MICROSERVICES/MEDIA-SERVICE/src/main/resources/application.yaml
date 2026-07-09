@@ -1,0 +1,12 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: MEDIA-SERVICE
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

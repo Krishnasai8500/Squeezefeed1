@@ -31,15 +31,13 @@ __pycache__/
 venv/
 
 # Spring configs
-application.yaml
-application.yml
+
 application.properties
 
 
 application-local.yml
 
-**/application.yaml
-**/application.yml
+
 **/application.properties
 
 

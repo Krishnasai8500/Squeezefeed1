@@ -1,0 +1,12 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: NEWS-ORCHESTRATION-SERVICE
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

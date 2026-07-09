@@ -1,0 +1,12 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: ADMIN-SERVICE
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
