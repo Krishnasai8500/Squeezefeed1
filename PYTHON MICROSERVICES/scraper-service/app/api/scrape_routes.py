@@ -19,7 +19,7 @@ from app.workers.celery_worker import scrape_rss_task
 from sqlalchemy import desc
 
 from datetime import datetime
-
+import traceback
 router = APIRouter(
     prefix="/scrape",
     tags=["Scraper"]
@@ -123,12 +123,14 @@ def scrape_content(
                 detail="Either url or rss_feed_url must be provided."
             )
 
+
     except Exception as e:
-        logger.error(f"Scraping failed: {str(e)}")
-        raise HTTPException(
-            status_code=500,
-            detail=f"Scraping failed: {str(e)}"
-        )
+
+        traceback.print_exc()
+
+        logger.exception("Full traceback")
+
+        raise
 @router.get("/articles")
 def get_all_articles(
         db: Session = Depends(get_db)
