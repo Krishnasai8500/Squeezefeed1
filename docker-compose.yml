@@ -70,6 +70,31 @@ services:
 
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
-volumes:
+  service-registry:
+    build:
+      context: ./JAVA MICROSERVICES/SERVICE-REGISTRY
 
+    container_name: service-registry
+
+    restart: unless-stopped
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    ports:
+      - "8761:8761"
+
+    depends_on:
+      - postgres
+      - kafka
+
+    networks:
+      - default
+      - squeezefeed-network
+
+volumes:
   postgres_data:
+
+networks:
+  squeezefeed-network:
+    external: true
