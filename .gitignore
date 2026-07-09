@@ -48,17 +48,22 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 
+celerybeat-schedule*
 # Databases
 *.db
 *.sqlite3
+
+
 
 # ==========================================
 # Environment Variables / Secrets
 # ==========================================
 
 .env
-.env.*
-!.env.example
+.env.local
+.env.prod
+.env.development
+!.env.docker
 
 # ==========================================
 # IDEs
