@@ -140,6 +140,173 @@ services:
       - squeezefeed-network
 
 
+  user-service:
+    build:
+      context: ./JAVA MICROSERVICES/USER-SERVICE
+
+    container_name: user-service
+
+    restart: unless-stopped
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    ports:
+      - "8082:8082"
+
+    depends_on:
+      - service-registry
+      - postgres
+      - kafka
+
+    networks:
+      - default
+      - squeezefeed-network
+
+  content-service:
+    build:
+      context: ./JAVA MICROSERVICES/CONTENT-SERVICE
+
+    container_name: content-service
+
+    restart: unless-stopped
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    ports:
+      - "8083:8083"
+
+    depends_on:
+      - service-registry
+      - postgres
+      - kafka
+
+    networks:
+      - default
+      - squeezefeed-network
+
+
+  news-orchestration-service:
+    build:
+      context: ./JAVA MICROSERVICES/NEWS-ORCHESTRATION-SERVICE
+
+    container_name: news-orchestration-service
+
+    restart: unless-stopped
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    ports:
+      - "8084:8084"
+
+    depends_on:
+      - service-registry
+      - postgres
+      - kafka
+
+    networks:
+      - default
+      - squeezefeed-network
+
+
+  admin-service:
+    build:
+      context: ./JAVA MICROSERVICES/ADMIN-SERVICE
+
+    container_name: admin-service
+
+    restart: unless-stopped
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    ports:
+      - "8085:8085"
+
+    depends_on:
+      - service-registry
+      - postgres
+      - kafka
+
+    networks:
+      - default
+      - squeezefeed-network
+
+
+  analytics-service:
+    build:
+      context: ./JAVA MICROSERVICES/ANALYTICS-SERVICE
+
+    container_name: analytics-service
+
+    restart: unless-stopped
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    ports:
+      - "8086:8086"
+
+    depends_on:
+      - service-registry
+      - postgres
+      - kafka
+
+    networks:
+      - default
+      - squeezefeed-network
+
+
+  notification-service:
+    build:
+      context: ./JAVA MICROSERVICES/NOTIFICATION-SERVICE
+
+    container_name: notification-service
+
+    restart: unless-stopped
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    ports:
+      - "8087:8087"
+
+    depends_on:
+      - service-registry
+      - postgres
+      - kafka
+
+    networks:
+      - default
+      - squeezefeed-network
+
+
+  media-service:
+    build:
+      context: ./JAVA MICROSERVICES/MEDIA-SERVICE
+
+    container_name: media-service
+
+    restart: unless-stopped
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    ports:
+      - "8089:8089"
+
+    depends_on:
+      - service-registry
+      - postgres
+      - kafka
+
+    networks:
+      - default
+      - squeezefeed-network
+
+
 volumes:
   postgres_data:
 
