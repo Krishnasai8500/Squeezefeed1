@@ -387,6 +387,8 @@ services:
     container_name: celery-worker
 
     restart: unless-stopped
+    environment:
+      ENV: docker
 
     command: celery -A app.workers.celery_worker.celery_app worker --pool=solo --loglevel=info
 
@@ -405,6 +407,9 @@ services:
     container_name: celery-beat
 
     restart: unless-stopped
+
+    environment:
+      ENV: docker
 
     command: celery -A app.workers.celery_worker.celery_app beat --loglevel=info
 
