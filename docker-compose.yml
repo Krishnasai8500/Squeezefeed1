@@ -314,6 +314,9 @@ services:
 
     restart: unless-stopped
 
+    environment:
+      ENV: docker
+
     ports:
       - "8001:8001"
 
@@ -334,6 +337,9 @@ services:
     container_name: sentiment-service
 
     restart: unless-stopped
+
+    environment:
+      ENV: docker
 
     ports:
       - "8002:8002"
