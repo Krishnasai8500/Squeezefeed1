@@ -318,7 +318,9 @@ services:
       - "8001:8001"
 
     depends_on:
+      - postgres
       - redis
+      - kafka
 
     networks:
       - default
@@ -337,7 +339,9 @@ services:
       - "8002:8002"
 
     depends_on:
+      - postgres
       - redis
+      - kafka
 
     networks:
       - default
@@ -352,11 +356,16 @@ services:
 
     restart: unless-stopped
 
+    environment:
+      GROQ_API_KEY: ${GROQ_API_KEY}
+
     ports:
       - "8003:8003"
 
     depends_on:
+      - postgres
       - redis
+      - kafka
 
     networks:
       - default
@@ -397,6 +406,9 @@ services:
     networks:
       - default
       - squeezefeed-network
+
+
+
 
 
 volumes:
