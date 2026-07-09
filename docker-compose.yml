@@ -92,6 +92,27 @@ services:
       - default
       - squeezefeed-network
 
+  api-gateway:
+    build:
+      context: ./JAVA MICROSERVICES/API-GATEWAY
+
+    container_name: api-gateway
+
+    restart: unless-stopped
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - service-registry
+
+    networks:
+      - default
+      - squeezefeed-network
+
 
 volumes:
   postgres_data:
