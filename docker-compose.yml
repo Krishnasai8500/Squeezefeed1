@@ -92,6 +92,27 @@ services:
       - default
       - squeezefeed-network
 
+  config-server:
+    build:
+      context: ./JAVA MICROSERVICES/CONFIG-SERVER
+
+    container_name: config-server
+
+    restart: unless-stopped
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    ports:
+      - "8888:8888"
+
+    depends_on:
+      - service-registry
+
+    networks:
+      - default
+      - squeezefeed-network
+
 volumes:
   postgres_data:
 
