@@ -45,7 +45,7 @@ for index, feed_url in enumerate(all_feeds):
         f"scrape-feed-{index}"
     ] = {
         "task": "app.workers.celery_worker.scrape_rss_task",
-        "schedule": crontab(minute="*/1"),
+        "schedule": crontab(hour="*/1"),
         "args": (feed_url,),
     }
 # "schedule": crontab(hour=2,minute="*/5"),

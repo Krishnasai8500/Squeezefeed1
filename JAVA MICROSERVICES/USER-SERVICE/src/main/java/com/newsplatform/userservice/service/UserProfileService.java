@@ -104,4 +104,6 @@ public interface UserProfileService {
     void submitFeedback(
             CreateFeedbackRequest request
     );
+
+    List<FeedbackResponse> getAllFeedback();
 }

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import { App as CapacitorApp } from "@capacitor/app";
 import { useNavigate, useLocation } from "react-router-dom";
-
+import AdminFeedbackPage from "./pages/adminFeedbackPage";
 import LoginPage from "./pages/loginPage";
 import HomePage from "./pages/homePage";
 import ArticlePage from "./pages/articlePage";
@@ -276,6 +276,15 @@ export default function App() {
                 <AdminAnalyticsPage />
               </ProtectedRoute>
             }
+          />
+
+          <Route
+              path="/admin/feedback"
+              element={
+                  <ProtectedRoute>
+                      <AdminFeedbackPage />
+                  </ProtectedRoute>
+              }
           />
 
           <Route

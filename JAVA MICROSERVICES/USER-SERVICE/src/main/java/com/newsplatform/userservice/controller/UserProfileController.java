@@ -384,4 +384,11 @@ public class UserProfileController {
         );
     }
 
+    @GetMapping("/feedback")
+    public ResponseEntity<List<FeedbackResponse>> getAllFeedback() {
+        return ResponseEntity.ok(
+                userProfileService.getAllFeedback()
+        );
+    }
+
 }

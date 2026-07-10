@@ -737,4 +737,13 @@ public class UserProfileServiceImpl implements UserProfileService {
                 feedback
         );
     }
+
+    @Override
+    public List<FeedbackResponse> getAllFeedback() {
+
+        return feedbackRepository.findAll()
+                .stream()
+                .map(this::mapToResponse)
+                .toList();
+    }
 }
