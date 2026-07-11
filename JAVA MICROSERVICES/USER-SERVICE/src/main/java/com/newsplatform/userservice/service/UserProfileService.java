@@ -66,7 +66,8 @@ public interface UserProfileService {
 
     List<UserProfileResponse>
     searchProfiles(
-            String query
+            String query,
+            Long authUserId
     );
 
     void updateLocation(

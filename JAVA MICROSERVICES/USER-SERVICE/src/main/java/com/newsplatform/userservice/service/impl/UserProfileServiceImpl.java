@@ -205,6 +205,11 @@ public class UserProfileServiceImpl implements UserProfileService {
         }
 // ────────────────────────────────────────────────────
 
+        publishEvent("user.article.commented", Map.of(
+                "userId", authUserId,
+                "createdAt", LocalDateTime.now().toString()
+        ));
+
         return buildTrackResponse(profile, newBadges, false);
     }
 
@@ -515,9 +520,10 @@ public class UserProfileServiceImpl implements UserProfileService {
     }
 
     @Override
-    public List<UserProfileResponse> searchProfiles(String query) {
+    public List<UserProfileResponse> searchProfiles(String query, Long authUserId) {
 
         publishEvent("user.search", Map.of(
+                "userId", authUserId,
                 "query", query,
                 "createdAt", LocalDateTime.now().toString()
         ));

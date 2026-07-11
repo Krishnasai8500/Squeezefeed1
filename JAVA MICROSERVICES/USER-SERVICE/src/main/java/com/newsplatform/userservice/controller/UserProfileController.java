@@ -260,15 +260,12 @@ public class UserProfileController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<
-            List<UserProfileResponse>
-            > searchProfiles(
-            @RequestParam String query
+    public ResponseEntity<List<UserProfileResponse>> searchProfiles(
+            @RequestParam String query,
+            @RequestParam Long authUserId
     ) {
-
         return ResponseEntity.ok(
-                userProfileService
-                        .searchProfiles(query)
+                userProfileService.searchProfiles(query, authUserId)
         );
     }
 
