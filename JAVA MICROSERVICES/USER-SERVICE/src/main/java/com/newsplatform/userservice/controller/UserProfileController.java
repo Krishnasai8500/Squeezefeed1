@@ -57,6 +57,10 @@ public class UserProfileController {
     public ResponseEntity<TrackActionResponse> trackRead(
             @RequestBody TrackReadRequest request
     ) {
+
+        System.out.println("========== TRACK READ CONTROLLER HIT ==========");
+        System.out.println(request.getAuthUserId());
+        System.out.println(request.getContentId());
         return ResponseEntity.ok(
                 userProfileService.trackRead(request)
         );
