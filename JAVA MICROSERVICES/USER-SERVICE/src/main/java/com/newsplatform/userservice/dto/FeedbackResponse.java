@@ -3,7 +3,6 @@ package com.newsplatform.userservice.dto;
 import lombok.*;
 
 import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @Builder
@@ -14,6 +13,10 @@ public class FeedbackResponse {
     private Long id;
 
     private Long authUserId;
+
+    private String userName;
+
+    private String email;
 
     private String category;
 

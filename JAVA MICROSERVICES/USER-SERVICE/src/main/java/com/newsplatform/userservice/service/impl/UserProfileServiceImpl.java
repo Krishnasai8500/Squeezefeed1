@@ -738,12 +738,24 @@ public class UserProfileServiceImpl implements UserProfileService {
         );
     }
 
+    private FeedbackResponse mapToFeedbackResponse(Feedback feedback) {
+        return FeedbackResponse.builder()
+                .id(feedback.getId())
+                .authUserId(feedback.getAuthUserId())
+                .userName(feedback.getUserName())
+                .email(feedback.getEmail())
+                .category(feedback.getCategory())
+                .message(feedback.getMessage())
+                .createdAt(feedback.getCreatedAt())
+                .build();
+    }
+
     @Override
     public List<FeedbackResponse> getAllFeedback() {
 
         return feedbackRepository.findAll()
                 .stream()
-                .map(this::mapToResponse)
+                .map(this::mapToFeedbackResponse)
                 .toList();
     }
 }
