@@ -140,6 +140,10 @@ public class UserProfileServiceImpl implements UserProfileService {
     @Override
     public TrackActionResponse trackRead(TrackReadRequest request) {
 
+        System.out.println("========== TRACK READ CALLED ==========");
+        System.out.println(request.getAuthUserId());
+        System.out.println(request.getContentId());
+
         UserProfile profile = findProfile(request.getAuthUserId());
         profile.setArticlesRead(profile.getArticlesRead() + 1);
 
