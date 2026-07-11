@@ -5,5 +5,6 @@ public enum AnalyticsType {
     SHARE,
     SAVE,
     CLICK,
-    READ_TIME
+    READ_TIME,
+    COMMENT, IMPRESSION, SESSION, DEVICE, REFERRAL, SEARCH, REGISTRATION
 }

@@ -18,6 +18,16 @@ public class AnalyticsController {
 
     private final ContentAnalyticsRepository repository;
 
+    // Types that count as a real, meaningful user action (used for DAU/retention)
+    private static final List<AnalyticsType> ACTIVE_USER_TYPES = List.of(
+            AnalyticsType.VIEW,
+            AnalyticsType.SHARE,
+            AnalyticsType.SAVE,
+            AnalyticsType.CLICK,
+            AnalyticsType.COMMENT,
+            AnalyticsType.SEARCH
+    );
+
     // ── Overview ─────────────────────────────────────
     @GetMapping("/overview")
     public ResponseEntity<Map<String, Object>> getOverview() {
@@ -25,7 +35,7 @@ public class AnalyticsController {
 
         data.put("totalReads",    repository.countByAnalyticsType(AnalyticsType.VIEW));
         data.put("totalShares",   repository.countByAnalyticsType(AnalyticsType.SHARE));
-        data.put("totalComments", repository.countByAnalyticsType(AnalyticsType.CLICK));
+        data.put("totalComments", repository.countByAnalyticsType(AnalyticsType.COMMENT)); // FIXED: was CLICK
         data.put("totalUsers",    repository.countBySource("REGISTRATION"));
         data.put(
                 "newUsersToday",
@@ -131,23 +141,13 @@ public class AnalyticsController {
     @GetMapping("/users/session")
     public ResponseEntity<Map<String, Object>> getSessionStats() {
 
-        Double avgSession =
-                repository.avgSessionDuration();
+        Double avgSession = repository.avgSessionDuration();
 
-        Map<String, Object> data =
-                new LinkedHashMap<>();
+        Map<String, Object> data = new LinkedHashMap<>();
 
-        data.put(
-                "avgSessionSeconds",
-                avgSession != null ? avgSession : 0
-        );
+        data.put("avgSessionSeconds", avgSession != null ? avgSession : 0);
 
-        data.put(
-                "totalSessions",
-                repository.countBySource(
-                        "SESSION_DURATION"
-                )
-        );
+        data.put("totalSessions", repository.countBySource("SESSION_DURATION"));
 
         return ResponseEntity.ok(data);
     }
@@ -155,14 +155,10 @@ public class AnalyticsController {
     @GetMapping("/content/ctr")
     public ResponseEntity<Map<String, Object>> getCTR() {
 
-        long impressions =
-                repository.countBySource("IMPRESSION");
+        long impressions = repository.countBySource("IMPRESSION");
+        long clicks = repository.countBySource("ARTICLE_CLICK");
 
-        long clicks =
-                repository.countBySource("ARTICLE_CLICK");
-
-        Map<String, Object> data =
-                new LinkedHashMap<>();
+        Map<String, Object> data = new LinkedHashMap<>();
 
         data.put("impressions", impressions);
         data.put("clicks", clicks);
@@ -170,10 +166,7 @@ public class AnalyticsController {
         data.put(
                 "ctr",
                 impressions > 0
-                        ? String.format(
-                        "%.2f",
-                        (clicks * 100.0) / impressions
-                ) + "%"
+                        ? String.format("%.2f", (clicks * 100.0) / impressions) + "%"
                         : "0%"
         );
 
@@ -183,29 +176,14 @@ public class AnalyticsController {
     @GetMapping("/users/searches")
     public ResponseEntity<List<Map<String, Object>>> getSearches() {
 
-        List<Object[]> rows =
-                repository.findTopSearches();
+        List<Object[]> rows = repository.findTopSearches();
 
-        List<Map<String, Object>> result =
-                new ArrayList<>();
+        List<Map<String, Object>> result = new ArrayList<>();
 
         for (Object[] row : rows) {
-
-            Map<String, Object> item =
-                    new LinkedHashMap<>();
-
-            item.put(
-                    "query",
-                    row[0]
-                            .toString()
-                            .replace("SEARCH:", "")
-            );
-
-            item.put(
-                    "count",
-                    row[1]
-            );
-
+            Map<String, Object> item = new LinkedHashMap<>();
+            item.put("query", row[0].toString().replace("SEARCH:", ""));
+            item.put("count", row[1]);
             result.add(item);
         }
 
@@ -215,18 +193,10 @@ public class AnalyticsController {
     @GetMapping("/users/devices")
     public ResponseEntity<Map<String, Object>> getDevices() {
 
-        long mobile =
-                repository.countBySourceContaining(
-                        "DEVICE:mobile"
-                );
+        long mobile = repository.countBySourceContaining("DEVICE:mobile");
+        long desktop = repository.countBySourceContaining("DEVICE:desktop");
 
-        long desktop =
-                repository.countBySourceContaining(
-                        "DEVICE:desktop"
-                );
-
-        Map<String, Object> data =
-                new LinkedHashMap<>();
+        Map<String, Object> data = new LinkedHashMap<>();
 
         data.put("mobile", mobile);
         data.put("desktop", desktop);
@@ -235,22 +205,12 @@ public class AnalyticsController {
 
         data.put(
                 "mobileRate",
-                total > 0
-                        ? String.format(
-                        "%.1f",
-                        mobile * 100.0 / total
-                ) + "%"
-                        : "0%"
+                total > 0 ? String.format("%.1f", mobile * 100.0 / total) + "%" : "0%"
         );
 
         data.put(
                 "desktopRate",
-                total > 0
-                        ? String.format(
-                        "%.1f",
-                        desktop * 100.0 / total
-                ) + "%"
-                        : "0%"
+                total > 0 ? String.format("%.1f", desktop * 100.0 / total) + "%" : "0%"
         );
 
         return ResponseEntity.ok(data);
@@ -259,66 +219,44 @@ public class AnalyticsController {
     @GetMapping("/users/referrals")
     public ResponseEntity<Map<String, Object>> getReferrals() {
 
-        long referrals =
-                repository.countBySource(
-                        "REFERRAL"
-                );
+        long referrals = repository.countBySource("REFERRAL");
 
-        return ResponseEntity.ok(
-                Map.of(
-                        "totalReferrals",
-                        referrals
-                )
-        );
+        return ResponseEntity.ok(Map.of("totalReferrals", referrals));
     }
 
     @GetMapping("/users/dau")
     public ResponseEntity<Map<String, Object>> getDAU() {
 
-        long dau =
-                repository.countActiveUsersSince(
-                        LocalDate.now()
-                                .atStartOfDay()
-                );
-
-        return ResponseEntity.ok(
-                Map.of(
-                        "dailyActiveUsers",
-                        dau
-                )
+        long dau = repository.countActiveUsersSince(
+                LocalDate.now().atStartOfDay(),
+                ACTIVE_USER_TYPES
         );
+
+        return ResponseEntity.ok(Map.of("dailyActiveUsers", dau));
     }
 
     @GetMapping("/users/retention")
     public ResponseEntity<Map<String, Object>> getRetention() {
 
-        long activeLast30Days =
-                repository.countDistinctUsersSince(
-                        LocalDateTime.now().minusDays(30)
-                );
+        long activeLast30Days = repository.countDistinctUsersSince(
+                LocalDateTime.now().minusDays(30),
+                ACTIVE_USER_TYPES
+        );
 
-        long activeLast7Days =
-                repository.countDistinctUsersSince(
-                        LocalDateTime.now().minusDays(7)
-                );
+        long activeLast7Days = repository.countDistinctUsersSince(
+                LocalDateTime.now().minusDays(7),
+                ACTIVE_USER_TYPES
+        );
 
-        double retention =
-                activeLast30Days > 0
-                        ? (activeLast7Days * 100.0)
-                        / activeLast30Days
-                        : 0;
+        double retention = activeLast30Days > 0
+                ? (activeLast7Days * 100.0) / activeLast30Days
+                : 0;
 
         return ResponseEntity.ok(
                 Map.of(
-                        "activeLast30Days",
-                        activeLast30Days,
-                        "activeLast7Days",
-                        activeLast7Days,
-                        "retentionRate",
-                        String.format(
-                                "%.2f%%",
-                                retention
-                        )
+                        "activeLast30Days", activeLast30Days,
+                        "activeLast7Days", activeLast7Days,
+                        "retentionRate", String.format("%.2f%%", retention)
                 )
         );
     }

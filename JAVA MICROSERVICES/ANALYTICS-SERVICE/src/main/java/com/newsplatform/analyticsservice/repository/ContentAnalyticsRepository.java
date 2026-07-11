@@ -102,10 +102,11 @@ public interface ContentAnalyticsRepository
     FROM ContentAnalytics a
     WHERE a.createdAt >= :from
       AND a.userId IS NOT NULL
+      AND a.analyticsType IN :types
 """)
     long countActiveUsersSince(
-            @Param("from")
-            LocalDateTime from
+            @Param("from") LocalDateTime from,
+            @Param("types") List<AnalyticsType> types
     );
 
     @Query("""
@@ -113,10 +114,11 @@ public interface ContentAnalyticsRepository
     FROM ContentAnalytics a
     WHERE a.createdAt >= :from
       AND a.userId IS NOT NULL
+      AND a.analyticsType IN :types
 """)
     long countDistinctUsersSince(
-            @Param("from")
-            LocalDateTime from
+            @Param("from") LocalDateTime from,
+            @Param("types") List<AnalyticsType> types
     );
 
     long countBySourceAndCreatedAtAfter(

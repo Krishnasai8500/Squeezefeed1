@@ -44,7 +44,7 @@ public class KafkaAnalyticsConsumer {
     public void onComment(String message) {
         try {
             Map<String, Object> payload = objectMapper.readValue(message, Map.class);
-            save(payload, AnalyticsType.CLICK); // reuse CLICK for comments
+            save(payload, AnalyticsType.COMMENT); // reuse CLICK for comments
         } catch (Exception e) {
             log.error("Failed to process comment event: {}", e.getMessage());
         }
@@ -65,7 +65,7 @@ public class KafkaAnalyticsConsumer {
 
             ContentAnalytics analytics = ContentAnalytics.builder()
                     .userId(userId)
-                    .analyticsType(AnalyticsType.VIEW)
+                    .analyticsType(AnalyticsType.REGISTRATION)
                     .source("REGISTRATION")
                     .metricValue(1)
                     .build();
@@ -84,7 +84,9 @@ public class KafkaAnalyticsConsumer {
                     objectMapper.readValue(message, Map.class);
 
             ContentAnalytics analytics = ContentAnalytics.builder()
-                    .analyticsType(AnalyticsType.CLICK)
+                    .userId(payload.get("userId") != null
+                            ? Long.valueOf(payload.get("userId").toString()) : null)
+                    .analyticsType(AnalyticsType.SEARCH)
                     .source("SEARCH:" + payload.getOrDefault("query", ""))
                     .metricValue(1)
                     .build();
@@ -107,15 +109,15 @@ public class KafkaAnalyticsConsumer {
                 : null;
 
         // Prevent duplicate READ events
-        if (type == AnalyticsType.VIEW
-                && userId != null
+        if (userId != null
                 && contentId != null
                 && repository.existsByUserIdAndContentIdAndAnalyticsType(
                 userId,
                 contentId,
-                AnalyticsType.VIEW)) {
+                type)) {
 
-            log.info("Duplicate VIEW ignored. user={}, content={}",
+            log.info("Duplicate {} ignored. user={}, content={}",
+                    type,
                     userId,
                     contentId);
 
@@ -162,9 +164,7 @@ public class KafkaAnalyticsConsumer {
                                             payload.get("contentId").toString()
                                     )
                             )
-                            .analyticsType(
-                                    AnalyticsType.VIEW
-                            )
+                            .analyticsType(AnalyticsType.IMPRESSION)
                             .source("IMPRESSION")
                             .metricValue(1)
                             .build();
@@ -249,9 +249,7 @@ public class KafkaAnalyticsConsumer {
                                             payload.get("userId").toString()
                                     )
                             )
-                            .analyticsType(
-                                    AnalyticsType.VIEW
-                            )
+                            .analyticsType(AnalyticsType.SESSION)
                             .source("SESSION_DURATION")
                             .metricValue(
                                     Integer.valueOf(
@@ -298,9 +296,7 @@ public class KafkaAnalyticsConsumer {
                                             payload.get("userId").toString()
                                     )
                             )
-                            .analyticsType(
-                                    AnalyticsType.VIEW
-                            )
+                            .analyticsType(AnalyticsType.DEVICE)
                             .source("DEVICE:" + (isMobile ? "mobile" : "desktop")) // ✅ consistent strings
                             .metricValue(1)
                             .build();
@@ -350,9 +346,7 @@ public class KafkaAnalyticsConsumer {
                                     )
                                             : null
                             )
-                            .analyticsType(
-                                    AnalyticsType.CLICK
-                            )
+                            .analyticsType(AnalyticsType.REFERRAL)
                             .source("REFERRAL")
                             .metricValue(1)
                             .build();
