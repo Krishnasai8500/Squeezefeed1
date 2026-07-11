@@ -27,6 +27,7 @@ import java.util.List;
 
 import com.newsplatform.userservice.entity.Feedback;
 import com.newsplatform.userservice.repository.FeedbackRepository;
+import com.newsplatform.userservice.dto.TrackReadRequest;
 
 @Slf4j
 @Service
@@ -137,25 +138,25 @@ public class UserProfileServiceImpl implements UserProfileService {
     // ─── Tracking ────────────────────────────────────────────────────────────────
 
     @Override
-    public TrackActionResponse trackRead(Long authUserId) {
+    public TrackActionResponse trackRead(TrackReadRequest request) {
 
-        UserProfile profile = findProfile(authUserId);
+        UserProfile profile = findProfile(request.getAuthUserId());
         profile.setArticlesRead(profile.getArticlesRead() + 1);
 
         List<String> newBadges = badgeService.evaluateReadBadges(profile);
         boolean frameUpgraded = badgeService.evaluateFrame(profile);
 
         userProfileRepository.save(profile);
-        // ── ADD after save in trackRead ──────────────────────
+
         if (!newBadges.isEmpty()) {
             for (String badge : newBadges) {
                 createBadgeNotification(profile.getAuthUserId(), badge);
             }
         }
-// ────────────────────────────────────────────────────
 
         publishEvent("user.article.read", Map.of(
-                "userId",    authUserId,
+                "userId", request.getAuthUserId(),
+                "contentId", request.getContentId(),
                 "createdAt", LocalDateTime.now().toString()
         ));
 

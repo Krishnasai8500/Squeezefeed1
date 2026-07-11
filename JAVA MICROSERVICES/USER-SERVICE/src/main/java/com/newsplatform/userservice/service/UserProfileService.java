@@ -3,6 +3,7 @@ package com.newsplatform.userservice.service;
 import com.newsplatform.userservice.dto.*;
 
 import java.util.*;
+import com.newsplatform.userservice.dto.*;
 public interface UserProfileService {
 
     UserProfileResponse createUserProfile(CreateUserProfileRequest request);
@@ -13,7 +14,7 @@ public interface UserProfileService {
 
     // ─── Tracking ────────────────────────────────────────────────────────────────
 
-    TrackActionResponse trackRead(Long authUserId);
+    TrackActionResponse trackRead(TrackReadRequest request);
 
     TrackActionResponse trackShare(Long authUserId);
 

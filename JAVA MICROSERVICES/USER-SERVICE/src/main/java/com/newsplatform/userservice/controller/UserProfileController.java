@@ -11,6 +11,7 @@ import com.newsplatform.userservice.service.BadgeCatalog;
 import java.util.List;
 import java.util.*;
 import com.newsplatform.userservice.dto.CreateFeedbackRequest;
+import com.newsplatform.userservice.dto.TrackReadRequest;
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
@@ -52,12 +53,12 @@ public class UserProfileController {
      * Called from frontend after user spends 5+ seconds on an article.
      * POST /api/users/track/read/{authUserId}
      */
-    @PostMapping("/track/read/{authUserId}")
+    @PostMapping("/track/read")
     public ResponseEntity<TrackActionResponse> trackRead(
-            @PathVariable Long authUserId
+            @RequestBody TrackReadRequest request
     ) {
         return ResponseEntity.ok(
-                userProfileService.trackRead(authUserId)
+                userProfileService.trackRead(request)
         );
     }
 
