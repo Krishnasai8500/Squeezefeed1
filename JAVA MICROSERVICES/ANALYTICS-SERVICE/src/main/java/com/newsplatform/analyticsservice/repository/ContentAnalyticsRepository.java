@@ -125,4 +125,10 @@ public interface ContentAnalyticsRepository
     );
 
     boolean existsBySourceAndUserId(String source, Long userId);
+
+    boolean existsByUserIdAndContentIdAndAnalyticsType(
+            Long userId,
+            Long contentId,
+            AnalyticsType analyticsType
+    );
 }

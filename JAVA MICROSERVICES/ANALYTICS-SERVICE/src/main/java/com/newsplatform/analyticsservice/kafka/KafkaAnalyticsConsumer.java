@@ -97,17 +97,42 @@ public class KafkaAnalyticsConsumer {
     }
 
     private void save(Map<String, Object> payload, AnalyticsType type) {
+
+        Long userId = payload.get("userId") != null
+                ? Long.valueOf(payload.get("userId").toString())
+                : null;
+
+        Long contentId = payload.get("contentId") != null
+                ? Long.valueOf(payload.get("contentId").toString())
+                : null;
+
+        // Prevent duplicate READ events
+        if (type == AnalyticsType.VIEW
+                && userId != null
+                && contentId != null
+                && repository.existsByUserIdAndContentIdAndAnalyticsType(
+                userId,
+                contentId,
+                AnalyticsType.VIEW)) {
+
+            log.info("Duplicate VIEW ignored. user={}, content={}",
+                    userId,
+                    contentId);
+
+            return;
+        }
+
         ContentAnalytics analytics = ContentAnalytics.builder()
-                .userId(payload.get("userId") != null
-                        ? Long.valueOf(payload.get("userId").toString()) : null)
-                .contentId(payload.get("contentId") != null
-                        ? Long.valueOf(payload.get("contentId").toString()) : null)
+                .userId(userId)
+                .contentId(contentId)
                 .analyticsType(type)
                 .category(payload.get("category") != null
-                        ? payload.get("category").toString() : null)
-                .source(payload.getOrDefault("source", type.name()).toString()) // ✅ use actual source
+                        ? payload.get("category").toString()
+                        : null)
+                .source(payload.getOrDefault("source", type.name()).toString())
                 .metricValue(1)
                 .build();
+
         repository.save(analytics);
     }
 
@@ -144,7 +169,7 @@ public class KafkaAnalyticsConsumer {
                             .metricValue(1)
                             .build();
 
-            repository.save(analytics);
+                repository.save(analytics);
 
             log.info(
                     "IMPRESSION SAVED FOR CONTENT {}",
