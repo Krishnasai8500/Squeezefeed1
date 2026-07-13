@@ -38,4 +38,4 @@ management:
         include: "*"
 
 media:
-  upload-dir: /tmp/uploads/
+  upload-dir: /opt/squeezefeed/uploads/
