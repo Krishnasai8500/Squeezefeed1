@@ -24,6 +24,11 @@
     import java.util.*;
     import org.apache.commons.text.StringEscapeUtils;
     import com.newsplatform.contentservice.recommendation.FeedRecommendationService;
+
+    import org.springframework.core.ParameterizedTypeReference;
+    import org.springframework.http.HttpMethod;
+    import org.springframework.http.HttpEntity;
+    import org.springframework.http.ResponseEntity;
     @Service
     @RequiredArgsConstructor
 
@@ -246,6 +251,35 @@
 
             final UserProfileResponse finalProfile = profile;
 
+            List<Long> recentlyServedIds = List.of();
+
+            try {
+
+                String recentFeedUrl =
+                        "http://user-service:8082/api/users/recent-feed/" + authUserId;
+
+                ResponseEntity<List<Long>> response =
+                        restTemplate.exchange(
+                                recentFeedUrl,
+                                HttpMethod.GET,
+                                HttpEntity.EMPTY,
+                                new ParameterizedTypeReference<List<Long>>() {}
+                        );
+
+                if (response.getBody() != null) {
+                    recentlyServedIds = response.getBody();
+                }
+
+            } catch (Exception e) {
+
+                System.out.println("Could not fetch recently served articles");
+
+            }
+
+
+
+            final List<Long> finalRecentlyServedIds = recentlyServedIds;
+
             Pageable pageable = PageRequest.of(
                     page,
                     FEED_CANDIDATE_POOL_SIZE,
@@ -256,6 +290,9 @@
                     .findPublishedContent(pageable)
                     .stream()
                     .map(this::mapToPublicResponse)
+                    .filter(article ->
+                            !finalRecentlyServedIds.contains(article.getId())
+                    )
                     .toList();
 
             // Only personalise if we have a valid profile with preferences
@@ -313,6 +350,27 @@
             }
     
             // ✅ REMOVED applyCategoryDiversity() — it was silently dropping new articles
+
+            try {
+
+                List<Long> servedArticleIds = articles.stream()
+                        .map(ContentResponse::getId)
+                        .toList();
+
+                String saveRecentFeedUrl =
+                        "http://user-service:8082/api/users/recent-feed/" + authUserId;
+
+                restTemplate.postForEntity(
+                        saveRecentFeedUrl,
+                        servedArticleIds,
+                        Void.class
+                );
+
+            } catch (Exception e) {
+
+                System.out.println("Could not save recently served articles");
+
+            }
             return articles;
         }
     
