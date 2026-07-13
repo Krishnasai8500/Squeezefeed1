@@ -283,31 +283,31 @@ services:
       - squeezefeed-network
 
 
-media-service:
-  build:
-    context: ./JAVA MICROSERVICES/MEDIA-SERVICE
+  media-service:
+    build:
+      context: ./JAVA MICROSERVICES/MEDIA-SERVICE
 
-  container_name: media-service
+    container_name: media-service
 
-  restart: unless-stopped
+    restart: unless-stopped
 
-  environment:
-    SPRING_PROFILES_ACTIVE: docker
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
 
-  ports:
-    - "8089:8089"
+    ports:
+      - "8089:8089"
 
-  volumes:
-    - /opt/squeezefeed/uploads:/opt/squeezefeed/uploads
+    volumes:
+      - /opt/squeezefeed/uploads:/opt/squeezefeed/uploads
 
-  depends_on:
-    - service-registry
-    - postgres
-    - kafka
+    depends_on:
+      - service-registry
+      - postgres
+      - kafka
 
-  networks:
-    - default
-    - squeezefeed-network
+    networks:
+      - default
+      - squeezefeed-network
 
   scraper-service:
     build:
