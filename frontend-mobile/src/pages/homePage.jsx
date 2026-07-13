@@ -10,7 +10,7 @@ import BottomNav from "../components/bottomNav";
 const HEADER_H = 96;
 const PAGE_SIZE = 20;
 // Cache expires after 2 minutes so fresh articles always appear on revisit
-const CACHE_TTL_MS = 2 * 60 * 1000;
+const CACHE_TTL_MS = 10 * 60 * 1000;
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -199,9 +199,9 @@ export default function HomePage() {
           const age = Date.now() - (parsed.ts || 0);
           // Only use cache if it's fresh AND we have articles
           if (parsed.articles?.length > 0 && age < CACHE_TTL_MS) {
-            setArticles(parsed.articles);
-            setLoading(false);
-            // Still fetch fresh in background — don't return early
+              setArticles(parsed.articles);
+              setLoading(false);
+              return; // <-- stop here
           } else {
             // Cache is stale — wipe it so user sees fresh data
             sessionStorage.removeItem("feedCache");

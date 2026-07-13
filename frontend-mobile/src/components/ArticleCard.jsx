@@ -111,12 +111,18 @@ export default function ArticleCard({
         if (entry.isIntersecting) {
           timer = setTimeout(() => {
             const token = localStorage.getItem("token");
-            axios
-              .post(
-                `https://api.squeezefeed.com/api/users/track/read/${authUserId}`,
-                {},
-                { headers: { Authorization: `Bearer ${token}` } },
-              )
+            axios.post(
+                "https://api.squeezefeed.com/api/users/track/read",
+                {
+                    authUserId,
+                    contentId: article.id
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+            )
               .then((res) => {
                 setTracked(true);
                 const alreadyShown = JSON.parse(
