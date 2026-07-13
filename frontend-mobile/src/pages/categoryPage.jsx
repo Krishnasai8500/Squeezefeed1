@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getByCategory } from "../services/api";
-import NewsCard from "../components/NewsCard";
-import Navbar from "../components/Navbar";
+import NewsCard from "../components/newsCard";
+import Navbar from "../components/navbar";
 
 export default function CategoryPage() {
   const { category } = useParams();
