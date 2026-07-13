@@ -422,7 +422,8 @@ export default function ArticleCard({
                     }
                     const authUserId = localStorage.getItem("authUserId");
                     // FIXED:
-                    const shareUrl = `https://squeezefeed.com/article/${article.id}?ref=${authUserId}`;
+                    const shareUrl =
+                        `https://share.squeezefeed.com/public/article/${article.id}?ref=${authUserId}`;
                     navigator.clipboard.writeText(shareUrl);
                     showToast("Link copied!", "success");
                   }}

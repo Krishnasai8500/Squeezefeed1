@@ -144,7 +144,8 @@ export default function ArticlePage() {
   const handleShare = () => {
     const authUserId = localStorage.getItem("authUserId");
     // FIXED:
-    const shareUrl = `https://squeezefeed.com/article/${article.id}?ref=${authUserId}`;
+    const shareUrl =
+        `https://share.squeezefeed.com/public/article/${article.id}?ref=${authUserId}`;
     navigator.clipboard.writeText(shareUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -194,10 +195,22 @@ export default function ArticlePage() {
                   Squeeze<span style={{ color: "#FF6A00" }}>Feed</span>
                 </span>
               </div>
+{/*               <button */}
+{/*                 className="sf-login" */}
+{/*                 style={S.publicJoinBtn} */}
+
+{/*                 onClick={() => navigate("/download")} */}
+{/*               > */}
+{/*                 Join Free → */}
+{/*               </button> */}
+
+
               <button
-                className="sf-login"
                 style={S.publicJoinBtn}
-                onClick={() => navigate("/login")}
+                onClick={() => {
+                  alert("Button clicked");
+                  navigate("/download");
+                }}
               >
                 Join Free →
               </button>
@@ -316,7 +329,9 @@ export default function ArticlePage() {
                 </span>
                 <button
                   style={S.publicCommentJoin}
-                  onClick={() => navigate("/login")}
+
+
+                  onClick={() => navigate("/download")}
                 >
                   Sign up free
                 </button>
@@ -362,7 +377,7 @@ export default function ArticlePage() {
               <button
                 className="sf-login"
                 style={S.ctaBtn}
-                onClick={() => navigate("/login")}
+                onClick={() => navigate("/download")}
               >
                 Join Free
               </button>

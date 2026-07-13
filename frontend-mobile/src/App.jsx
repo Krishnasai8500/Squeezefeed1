@@ -27,7 +27,7 @@ import AboutPage from "./pages/AboutPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsPage from "./pages/TermsPage";
 import AdminReportsPage from "./pages/adminReportsPage";
-
+import DownloadPage from "./pages/DownloadPage";
 import Toast from "./components/Toast";
 import PageLoader from "./components/PageLoader";
 // At top of App.jsx
@@ -65,15 +65,15 @@ function BackButtonHandler({ onExitRequest }) {
 }
 
 const ProtectedRoute = ({ children }) => {
-  return localStorage.getItem("token") ? (
-    children
-  ) : (
-    <Navigate to="/login" replace />
-  );
+  return localStorage.getItem("token")
+    ? children
+    : <Navigate to="/login" replace />;
 };
 
 export default function App() {
   const [showExitModal, setShowExitModal] = useState(false);
+
+
 
   const [showSplash, setShowSplash] = useState(() => {
     // Skip splash entirely for public routes
@@ -177,6 +177,8 @@ export default function App() {
   return (
     <div style={{ background: "#080808", minHeight: "100vh" }}>
       <BrowserRouter>
+
+
         <BackButtonHandler onExitRequest={() => setShowExitModal(true)} />
         <PageLoader />
         <Routes>
@@ -327,7 +329,10 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+
+          <Route path="/download" element={<DownloadPage />} />
         </Routes>
+
       </BrowserRouter>
       {showExitModal && (
         <div className="exit-overlay">
