@@ -109,8 +109,8 @@ export default function AdminMemePage() {
         formData,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`
+//             "Content-Type": "multipart/form-data",
           },
         },
       );
@@ -122,7 +122,7 @@ export default function AdminMemePage() {
           title: customTitles[article.id],
           shortContext: customContexts[article.id],
           //                 imageUrl: `http://localhost:8089/uploads/${uploadedFileName}`,
-          imageUrl: `https://media.nxtbharat.com/uploads/${uploadedFileName}`,
+          imageUrl: `https://api.squeezefeed.com/uploads/${uploadedFileName}`,
           sourceContentId: article.id,
           memeabilityScore: article.memeabilityScore || 0.8,
         },
@@ -134,7 +134,7 @@ export default function AdminMemePage() {
         shortContext:
           customContexts[article.id] || article.summary?.slice(0, 120),
         //                 imageUrl: `http://localhost:8089/uploads/${uploadedFileName}`,
-        imageUrl: `https://media.nxtbharat.com/uploads/${uploadedFileName}`,
+        imageUrl: `https://api.squeezefeed.com/uploads/${uploadedFileName}`,
       };
       cache.publishedMemes = [...(cache.publishedMemes || []), newMeme];
       cache.articles = (cache.articles || []).filter(
@@ -144,8 +144,22 @@ export default function AdminMemePage() {
       setArticles((prev) => prev.filter((a) => a.id !== article.id));
       showToast("Meme published successfully!");
     } catch (err) {
+
+      let message = "Unknown Error";
+
+      if (err.response) {
+        message = `Status: ${err.response.status}\n${JSON.stringify(err.response.data)}`;
+      } else if (err.request) {
+        message = "No response received from server";
+      } else {
+        message = err.message;
+      }
+
+      alert(message);
+
       console.error(err);
-      showToast("Failed to publish meme", "error");
+
+      showToast("Failed to create meme", "error");
     } finally {
       setPublishing((p) => ({ ...p, [article.id]: false }));
     }
@@ -192,8 +206,8 @@ export default function AdminMemePage() {
         formData,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`
+//             "Content-Type": "multipart/form-data",
           },
         },
       );
@@ -212,7 +226,7 @@ export default function AdminMemePage() {
           //                         imageUrl:
           //                             `http://10.28.103.159:8089/uploads/${uploadedFileName}`,
 
-          imageUrl: `https://media.nxtbharat.com/uploads/${uploadedFileName}`,
+          imageUrl: `https://api.squeezefeed.com/uploads/${uploadedFileName}`,
 
           sourceContentId: null,
 

@@ -144,7 +144,7 @@ export default function ArticlePage() {
   const handleShare = () => {
     const authUserId = localStorage.getItem("authUserId");
     // FIXED:
-    const shareUrl = `https://app.nxtbharat.com/public/article/${article.id}?ref=${authUserId}`;
+    const shareUrl = `https://squeezefeed.com/article/${article.id}?ref=${authUserId}`;
     navigator.clipboard.writeText(shareUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
