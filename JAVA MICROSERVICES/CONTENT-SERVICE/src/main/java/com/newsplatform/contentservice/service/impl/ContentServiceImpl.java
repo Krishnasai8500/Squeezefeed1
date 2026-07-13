@@ -23,8 +23,10 @@
     import org.springframework.data.domain.Sort;
     import java.util.*;
     import org.apache.commons.text.StringEscapeUtils;
+    import com.newsplatform.contentservice.recommendation.FeedRecommendationService;
     @Service
     @RequiredArgsConstructor
+
     public class ContentServiceImpl implements ContentService {
     
         private final ContentRepository contentRepository;
@@ -33,9 +35,11 @@
         private final CommentRepository commentRepository;
         private final RestTemplate restTemplate;
         private final UserServiceClient userServiceClient;
+        private final FeedRecommendationService feedRecommendationService;
 
 
         private final NotificationServiceClient notificationServiceClient;
+
     
         @Override
         public ContentAdminResponse createContent(CreateContentRequest request) {
@@ -220,6 +224,8 @@
 
             return mapToAdminResponse(content);
         }
+
+        private static final int FEED_CANDIDATE_POOL_SIZE = 100;
         @Override
         public List<ContentResponse> getAllPublishedContent(
                 Long authUserId,
@@ -242,7 +248,7 @@
 
             Pageable pageable = PageRequest.of(
                     page,
-                    size,
+                    FEED_CANDIDATE_POOL_SIZE,
                     Sort.by("publishedAt").descending()
             );
 
@@ -257,48 +263,53 @@
                     && finalProfile.getPreferredCategories() != null
                     && !finalProfile.getPreferredCategories().isEmpty()) {
 
-                articles = articles.stream()
-                        .sorted((a, b) -> {
-                            int scoreA = 0;
-                            int scoreB = 0;
+//                articles = articles.stream()
+//                        .sorted((a, b) -> {
+//                            int scoreA = 0;
+//                            int scoreB = 0;
+//
+//                            if (a.getArticleCity() != null
+//                                    && finalProfile.getCity() != null
+//                                    && a.getArticleCity().equalsIgnoreCase(finalProfile.getCity())) {
+//                                scoreA += 15;
+//                            }
+//                            if (a.getArticleState() != null
+//                                    && finalProfile.getState() != null
+//                                    && a.getArticleState().equalsIgnoreCase(finalProfile.getState())) {
+//                                scoreA += 5;
+//                            }
+//                            if (finalProfile.getPreferredCategories().stream()
+//                                    .anyMatch(cat -> cat.equalsIgnoreCase(a.getCategory()))) {
+//                                scoreA += 10;
+//                            }
+//
+//                            if (b.getArticleCity() != null
+//                                    && finalProfile.getCity() != null
+//                                    && b.getArticleCity().equalsIgnoreCase(finalProfile.getCity())) {
+//                                scoreB += 15;
+//                            }
+//                            if (b.getArticleState() != null
+//                                    && finalProfile.getState() != null
+//                                    && b.getArticleState().equalsIgnoreCase(finalProfile.getState())) {
+//                                scoreB += 5;
+//                            }
+//                            if (finalProfile.getPreferredCategories().stream()
+//                                    .anyMatch(cat -> cat.equalsIgnoreCase(b.getCategory()))) {
+//                                scoreB += 10;
+//                            }
+//
+//                            // If scores are equal, keep original publishedAt order (newer first)
+//                            if (scoreA == scoreB) {
+//                                return 0; // preserve DB sort order
+//                            }
+//                            return Integer.compare(scoreB, scoreA);
+//                        })
+//                        .toList();
 
-                            if (a.getArticleCity() != null
-                                    && finalProfile.getCity() != null
-                                    && a.getArticleCity().equalsIgnoreCase(finalProfile.getCity())) {
-                                scoreA += 15;
-                            }
-                            if (a.getArticleState() != null
-                                    && finalProfile.getState() != null
-                                    && a.getArticleState().equalsIgnoreCase(finalProfile.getState())) {
-                                scoreA += 5;
-                            }
-                            if (finalProfile.getPreferredCategories().stream()
-                                    .anyMatch(cat -> cat.equalsIgnoreCase(a.getCategory()))) {
-                                scoreA += 10;
-                            }
-
-                            if (b.getArticleCity() != null
-                                    && finalProfile.getCity() != null
-                                    && b.getArticleCity().equalsIgnoreCase(finalProfile.getCity())) {
-                                scoreB += 15;
-                            }
-                            if (b.getArticleState() != null
-                                    && finalProfile.getState() != null
-                                    && b.getArticleState().equalsIgnoreCase(finalProfile.getState())) {
-                                scoreB += 5;
-                            }
-                            if (finalProfile.getPreferredCategories().stream()
-                                    .anyMatch(cat -> cat.equalsIgnoreCase(b.getCategory()))) {
-                                scoreB += 10;
-                            }
-    
-                            // If scores are equal, keep original publishedAt order (newer first)
-                            if (scoreA == scoreB) {
-                                return 0; // preserve DB sort order
-                            }
-                            return Integer.compare(scoreB, scoreA);
-                        })
-                        .toList();
+                articles = feedRecommendationService.rankFeed(
+                        articles,
+                        finalProfile
+                );
             }
     
             // ✅ REMOVED applyCategoryDiversity() — it was silently dropping new articles
