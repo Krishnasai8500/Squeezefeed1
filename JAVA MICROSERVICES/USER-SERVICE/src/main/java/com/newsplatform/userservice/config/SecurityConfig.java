@@ -71,6 +71,10 @@ public class SecurityConfig {
                         )
                         .permitAll()
 
+                        .requestMatchers(
+                                "/api/users/recent-feed/**"
+                        ).permitAll()
+
                         // Tracking
                         .requestMatchers("/api/users/track/**")
                         .authenticated()
