@@ -9,10 +9,22 @@ export function getCachedSrc(url) {
 }
 
 export function preloadAndCache(url) {
-  if (!url || memoryCache.has(url)) return;
+  if (!url || memoryCache.has(url)) {
+    return Promise.resolve();
+  }
 
-  const img = new Image();
-  img.onload = () => memoryCache.add(url);
-  img.onerror = () => {};
-  img.src = url;
+  return new Promise((resolve) => {
+    const img = new Image();
+
+    img.onload = () => {
+      memoryCache.add(url);
+      resolve();
+    };
+
+    img.onerror = () => {
+      resolve(); // don't block UI if image fails
+    };
+
+    img.src = url;
+  });
 }
