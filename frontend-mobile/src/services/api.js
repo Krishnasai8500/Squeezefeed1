@@ -106,8 +106,7 @@ export const googleLogin = (credential) =>
     credential,
   });
 
-  export const getAllFeedback = () =>
-      api.get("/api/users/feedback");
+
 
 
 export const getAllFeedback = (status) =>
