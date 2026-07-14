@@ -1,6 +1,7 @@
 package com.newsplatform.userservice.controller;
 
 import com.newsplatform.userservice.dto.*;
+import com.newsplatform.userservice.entity.FeedbackStatus;
 import com.newsplatform.userservice.service.UserProfileService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

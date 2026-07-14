@@ -4,6 +4,8 @@ import com.newsplatform.userservice.dto.*;
 
 import java.util.*;
 import com.newsplatform.userservice.dto.*;
+import com.newsplatform.userservice.entity.FeedbackStatus;
+
 public interface UserProfileService {
 
     UserProfileResponse createUserProfile(CreateUserProfileRequest request);
@@ -107,5 +109,6 @@ public interface UserProfileService {
             CreateFeedbackRequest request
     );
 
-    List<FeedbackResponse> getAllFeedback();
+    List<FeedbackResponse> getAllFeedback(FeedbackStatus status);
+    FeedbackResponse resolveFeedback(Long id);
 }

@@ -28,7 +28,7 @@ import java.util.List;
 import com.newsplatform.userservice.entity.Feedback;
 import com.newsplatform.userservice.repository.FeedbackRepository;
 import com.newsplatform.userservice.dto.TrackReadRequest;
-
+import com.newsplatform.userservice.entity.FeedbackStatus;
 @Slf4j
 @Service
 @RequiredArgsConstructor
