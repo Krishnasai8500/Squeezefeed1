@@ -109,4 +109,13 @@ export const googleLogin = (credential) =>
   export const getAllFeedback = () =>
       api.get("/api/users/feedback");
 
+
+export const getAllFeedback = (status) =>
+  api.get(`/api/users/feedback${status ? `?status=${status}` : ""}`);
+
+export const resolveFeedback = (id) =>
+  api.patch(`/api/users/feedback/${id}/resolve`);
+
+
 export default api;
+

@@ -330,6 +330,14 @@ export default function Navbar({ onRefresh }) {
                   >
                     🚩 Reports
                   </span>
+
+                  <span
+                    className="nav-pill"
+                    style={S.pill}
+                    onClick={() => navigate("/admin/feedback")}
+                  >
+                    💬 Feedback
+                  </span>
                 </>
               )}
             </div>

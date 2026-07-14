@@ -761,12 +761,33 @@ public class UserProfileServiceImpl implements UserProfileService {
                 .build();
     }
 
-    @Override
-    public List<FeedbackResponse> getAllFeedback() {
+    public List<FeedbackResponse> getAllFeedback(FeedbackStatus status) {
+        List<Feedback> results = (status != null)
+                ? feedbackRepository.findByStatusOrderByCreatedAtDesc(status)
+                : feedbackRepository.findAll();
 
-        return feedbackRepository.findAll()
-                .stream()
-                .map(this::mapToFeedbackResponse)
+        return results.stream()
+                .map(f -> FeedbackResponse.builder()
+                        .id(f.getId())
+                        .authUserId(f.getAuthUserId())
+                        .userName(f.getUserName())
+                        .category(f.getCategory())
+                        .message(f.getMessage())
+                        .status(f.getStatus())
+                        .createdAt(f.getCreatedAt())
+                        .build())
                 .toList();
+    }
+
+    public FeedbackResponse resolveFeedback(Long id) {
+        Feedback f = feedbackRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Feedback not found: " + id));
+        f.setStatus(FeedbackStatus.RESOLVED);
+        feedbackRepository.save(f);
+        return FeedbackResponse.builder()
+                .id(f.getId()).authUserId(f.getAuthUserId()).userName(f.getUserName())
+                .category(f.getCategory()).message(f.getMessage())
+                .status(f.getStatus()).createdAt(f.getCreatedAt())
+                .build();
     }
 }

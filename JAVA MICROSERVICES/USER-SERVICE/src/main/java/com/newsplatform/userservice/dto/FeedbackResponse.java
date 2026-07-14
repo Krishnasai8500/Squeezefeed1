@@ -1,5 +1,6 @@
 package com.newsplatform.userservice.dto;
 
+import com.newsplatform.userservice.entity.FeedbackStatus;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -23,4 +24,5 @@ public class FeedbackResponse {
     private String message;
 
     private LocalDateTime createdAt;
+    private FeedbackStatus status;
 }

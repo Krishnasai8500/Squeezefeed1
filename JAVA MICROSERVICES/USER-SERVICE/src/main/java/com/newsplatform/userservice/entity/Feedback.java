@@ -34,8 +34,16 @@ public class Feedback {
 
     private LocalDateTime createdAt;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private FeedbackStatus status;
+
     @PrePersist
     public void prePersist() {
         createdAt = LocalDateTime.now();
+        status = FeedbackStatus.PENDING;
     }
+
+
+
 }

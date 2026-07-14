@@ -386,11 +386,18 @@ public class UserProfileController {
         );
     }
 
+
+
     @GetMapping("/feedback")
-    public ResponseEntity<List<FeedbackResponse>> getAllFeedback() {
-        return ResponseEntity.ok(
-                userProfileService.getAllFeedback()
-        );
+    public ResponseEntity<List<FeedbackResponse>> getAllFeedback(
+            @RequestParam(required = false) FeedbackStatus status
+    ) {
+        return ResponseEntity.ok(userProfileService.getAllFeedback(status));
+    }
+
+    @PatchMapping("/feedback/{id}/resolve")
+    public ResponseEntity<FeedbackResponse> resolveFeedback(@PathVariable Long id) {
+        return ResponseEntity.ok(userProfileService.resolveFeedback(id));
     }
 
 }
