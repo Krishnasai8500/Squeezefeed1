@@ -104,7 +104,7 @@ export default function App() {
         memes.slice(0, 5).forEach((m) => {
           const url = m.imageUrl?.replace(
             "http://localhost:8089",
-            "https://media.nxtbharat.com",
+            "https://api.squeezefeed.com",
           );
           preloadAndCache(url);
         });
@@ -115,7 +115,7 @@ export default function App() {
             () => {
               const url = m.imageUrl?.replace(
                 "http://localhost:8089",
-                "https://media.nxtbharat.com",
+                "https://api.squeezefeed.com",
               );
               preloadAndCache(url);
             },

@@ -9,11 +9,13 @@ import {
 } from "../services/imageCache";
 const BASE_URL = "https://api.squeezefeed.com";
 
-const getImageUrl = (meme) =>
-  meme?.imageUrl?.replace(
-    "http://localhost:8089",
-    "https://media.nxtbharat.com",
-  );
+const getImageUrl = (meme) => {
+  if (!meme?.imageUrl) return "";
+
+  return meme.imageUrl
+    .replace("http://localhost:8089", "https://api.squeezefeed.com")
+    .replace("https://api.squeezefeed.com", "https://api.squeezefeed.com");
+};
 
 const preloadImage = preloadAndCache;
 

@@ -208,7 +208,7 @@ export default function ArticlePage() {
               <button
                 style={S.publicJoinBtn}
                 onClick={() => {
-                  alert("Button clicked");
+
                   navigate("/download");
                 }}
               >
