@@ -42,7 +42,7 @@ export default function CategoryPage() {
           <span style={{ color: "#e63946" }}>{category}</span> News
         </h2>
         {articles.length === 0 ? (
-          <p style={{ color: "#666" }}>No articles found for this category.</p>
+          <p style={{ color: "#C5C5C5" }}>No articles found for this category.</p>
         ) : (
           <div
             style={{

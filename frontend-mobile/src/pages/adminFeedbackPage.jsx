@@ -48,7 +48,7 @@ export default function AdminFeedbackPage() {
             <h2 style={{ color: "#f0ece0", fontFamily: "'Playfair Display', serif", margin: 0, fontSize: "22px" }}>
               💬 Feedback
             </h2>
-            <p style={{ color: "#444", fontSize: "12px", margin: "4px 0 0" }}>
+            <p style={{ color: "#A0A0A0", fontSize: "12px", margin: "4px 0 0" }}>
               {feedback.length} {tab.toLowerCase()}
             </p>
           </div>
@@ -66,7 +66,7 @@ export default function AdminFeedbackPage() {
                 fontWeight: 600,
                 padding: "6px 14px",
                 borderRadius: "999px",
-                color: tab === t ? "#FF6A00" : "#666",
+                color: tab === t ? "#FF6A00" : "#C5C5C5",
                 background: tab === t ? "rgba(255,106,0,0.1)" : "transparent",
                 border: tab === t ? "1px solid rgba(255,106,0,0.25)" : "1px solid rgba(255,255,255,0.06)",
               }}
@@ -77,11 +77,11 @@ export default function AdminFeedbackPage() {
         </div>
 
         {loading && (
-          <p style={{ color: "#555", textAlign: "center", marginTop: "60px" }}>Loading...</p>
+          <p style={{ color: "#B5B5B5", textAlign: "center", marginTop: "60px" }}>Loading...</p>
         )}
 
         {!loading && feedback.length === 0 && (
-          <div style={{ textAlign: "center", marginTop: "80px", color: "#333", fontSize: "14px" }}>
+          <div style={{ textAlign: "center", marginTop: "80px", color: "#8A8A8A", fontSize: "14px" }}>
             <div style={{ fontSize: "40px", marginBottom: "12px" }}>✅</div>
             {tab === "PENDING" ? "All caught up. No pending feedback." : "No resolved feedback yet."}
           </div>
@@ -108,7 +108,7 @@ export default function AdminFeedbackPage() {
               >
                 💬 {item.category || "Feedback"} #{item.id}
               </span>
-              <span style={{ color: "#444", fontSize: "11px" }}>
+              <span style={{ color: "#A0A0A0", fontSize: "11px" }}>
                 {item.createdAt?.slice(0, 10)}
               </span>
             </div>

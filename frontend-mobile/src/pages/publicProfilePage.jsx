@@ -633,7 +633,7 @@ export default function PublicProfilePage() {
               style={{
                 ...S.likeBtn,
                 background: liked ? "rgba(255,255,255,0.06)" : "#FF6A00",
-                color: liked ? "#555" : "#fff",
+                color: liked ? "#B5B5B5" : "#fff",
                 cursor: liked ? "default" : "pointer",
                 marginTop: 14,
               }}
@@ -736,7 +736,7 @@ export default function PublicProfilePage() {
                     <div
                       style={{
                         fontSize: 10,
-                        color: "#333",
+                        color: "#8A8A8A",
                         letterSpacing: "0.06em",
                       }}
                     >
@@ -749,7 +749,7 @@ export default function PublicProfilePage() {
           ) : (
             <div style={S.emptyBadges}>
               <span style={{ fontSize: 28 }}>🎯</span>
-              <span style={{ fontSize: 13, color: "#333", marginTop: 8 }}>
+              <span style={{ fontSize: 13, color: "#8A8A8A", marginTop: 8 }}>
                 No badges yet
               </span>
             </div>

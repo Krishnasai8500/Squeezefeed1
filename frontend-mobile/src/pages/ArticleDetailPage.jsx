@@ -84,7 +84,7 @@ const BADGE_CONFIG = {
 
 // ─── Frame styles ─────────────────────────────────────────────────────────────
 const FRAME_STYLES = {
-  default: { border: "3px solid #444" },
+  default: { border: "3px solid #A0A0A0" },
   blue_glow: { border: "3px solid #3b82f6", boxShadow: "0 0 12px #3b82f6" },
   orange_pulse: {
     border: "3px solid #f97316",
@@ -421,7 +421,7 @@ const styles = {
     fontSize: "12px",
     padding: "4px 10px",
     borderRadius: "20px",
-    border: "1px solid #333",
+    border: "1px solid #8A8A8A",
   },
   loading: {
     background: "#0f0f0f",

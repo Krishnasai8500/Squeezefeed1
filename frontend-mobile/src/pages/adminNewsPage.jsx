@@ -1136,7 +1136,7 @@ function EditModal({ article, onSave, onClose }) {
                 style={{ display: "none" }}
                 onChange={(e) => handleFileChange(e.target.files[0])}
               />
-              <span style={{ color: "#555", fontSize: 13 }}>
+              <span style={{ color: "#B5B5B5", fontSize: 13 }}>
                 {uploading
                   ? "⏳ Uploading…"
                   : uploadedUrl
@@ -1229,7 +1229,7 @@ function EditModal({ article, onSave, onClose }) {
                 ...S.langCheck,
                 background: selectedLangs.has(l.value) ? "#0f172a" : "#0d0d0d",
                 borderColor: selectedLangs.has(l.value) ? "#3b82f6" : "#1e1e1e",
-                color: selectedLangs.has(l.value) ? "#93c5fd" : "#555",
+                color: selectedLangs.has(l.value) ? "#93c5fd" : "#B5B5B5",
               }}
             >
               <input
@@ -1297,7 +1297,7 @@ function Label({ children }) {
     <div
       style={{
         fontSize: 11,
-        color: "#444",
+        color: "#A0A0A0",
         fontWeight: 600,
         textTransform: "uppercase",
         letterSpacing: "0.06em",
@@ -1324,7 +1324,7 @@ function Toast({ toast }) {
 function Spinner() {
   return (
     <div
-      style={{ textAlign: "center", padding: 24, color: "#333", fontSize: 13 }}
+      style={{ textAlign: "center", padding: 24, color: "#8A8A8A", fontSize: 13 }}
     >
       Loading…
     </div>
@@ -1373,7 +1373,7 @@ const S = {
     borderRadius: 8,
     border: "1px solid #1e1e1e",
     background: "transparent",
-    color: "#555",
+    color: "#B5B5B5",
     cursor: "pointer",
     fontSize: 13,
     fontWeight: 600,
@@ -1400,7 +1400,7 @@ const S = {
     borderRadius: 8,
     border: "1px solid #1e1e1e",
     background: "transparent",
-    color: "#555",
+    color: "#B5B5B5",
     cursor: "pointer",
     fontSize: 13,
     fontWeight: 600,
@@ -1421,7 +1421,7 @@ const S = {
     borderRadius: 7,
     border: "1px solid #1e1e1e",
     background: "transparent",
-    color: "#444",
+    color: "#A0A0A0",
     cursor: "pointer",
     fontSize: 12,
     fontWeight: 600,
@@ -1441,7 +1441,7 @@ const S = {
   },
   searchLabel: {
     fontSize: 11,
-    color: "#333",
+    color: "#8A8A8A",
     fontWeight: 600,
     textTransform: "uppercase",
     letterSpacing: "0.08em",
@@ -1481,7 +1481,7 @@ const S = {
     borderRadius: 10,
     border: "1px solid #1e1e1e",
     background: "transparent",
-    color: "#555",
+    color: "#B5B5B5",
     cursor: "pointer",
     fontSize: 13,
   },
@@ -1514,7 +1514,7 @@ const S = {
   filterIcon: {
     position: "absolute",
     left: 12,
-    color: "#333",
+    color: "#8A8A8A",
     fontSize: 16,
     pointerEvents: "none",
   },
@@ -1533,13 +1533,13 @@ const S = {
     padding: "2px 6px",
     border: "none",
     background: "transparent",
-    color: "#444",
+    color: "#A0A0A0",
     cursor: "pointer",
     fontSize: 13,
   },
   filterCount: {
     fontSize: 12,
-    color: "#444",
+    color: "#A0A0A0",
     fontFamily: "'DM Mono', monospace",
     whiteSpace: "nowrap",
   },
@@ -1616,7 +1616,7 @@ const S = {
     letterSpacing: "0.06em",
   },
   trendingTag: { fontSize: 12 },
-  subInfo: { fontSize: 11, color: "#333", fontFamily: "'DM Mono', monospace" },
+  subInfo: { fontSize: 11, color: "#8A8A8A", fontFamily: "'DM Mono', monospace" },
   cardTitle: {
     margin: 0,
     fontSize: 15,
@@ -1628,7 +1628,7 @@ const S = {
   cardDesc: {
     margin: 0,
     fontSize: 13,
-    color: "#444",
+    color: "#A0A0A0",
     lineHeight: 1.6,
     display: "-webkit-box",
     WebkitLineClamp: 3,
@@ -1705,7 +1705,7 @@ const S = {
   },
   modalSubtitle: {
     fontSize: 11,
-    color: "#444",
+    color: "#A0A0A0",
     fontFamily: "'DM Mono', monospace",
     marginTop: 2,
   },
@@ -1715,7 +1715,7 @@ const S = {
     borderRadius: "50%",
     border: "1px solid #1e1e1e",
     background: "transparent",
-    color: "#555",
+    color: "#B5B5B5",
     cursor: "pointer",
     fontSize: 13,
     display: "flex",
@@ -1759,7 +1759,7 @@ const S = {
     borderRadius: 8,
     border: "1px solid #1e1e1e",
     background: "transparent",
-    color: "#444",
+    color: "#A0A0A0",
     cursor: "pointer",
     fontSize: 12,
     fontWeight: 600,
@@ -1861,7 +1861,7 @@ const S = {
     borderRadius: 10,
     border: "1px solid #1e1e1e",
     background: "transparent",
-    color: "#555",
+    color: "#B5B5B5",
     cursor: "pointer",
     fontSize: 14,
     fontWeight: 600,

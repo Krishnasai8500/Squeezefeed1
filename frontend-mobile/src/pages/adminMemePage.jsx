@@ -19,7 +19,7 @@ function clearCache() {
 
 // ── Score color helper ──────────────────────────────────────────────────────
 function scoreColor(score) {
-  if (!score) return "#555";
+  if (!score) return "#B5B5B5";
   if (score >= 0.8) return "#ff4444";
   if (score >= 0.6) return "#ff9500";
   return "#facc15";
@@ -826,13 +826,13 @@ const S = {
     color: "#fff",
     letterSpacing: "-0.02em",
   },
-  headerSub: { fontSize: 12, color: "#444", marginTop: 2 },
+  headerSub: { fontSize: 12, color: "#A0A0A0", marginTop: 2 },
   refreshBtn: {
     padding: "8px 18px",
     borderRadius: 8,
     border: "1px solid #2a2a2a",
     background: "transparent",
-    color: "#666",
+    color: "#C5C5C5",
     cursor: "pointer",
     fontSize: 13,
     fontWeight: 600,
@@ -850,7 +850,7 @@ const S = {
   statNum: { fontFamily: "'Syne', sans-serif", fontSize: 22, fontWeight: 800 },
   statLabel: {
     fontSize: 11,
-    color: "#444",
+    color: "#A0A0A0",
     textTransform: "uppercase",
     letterSpacing: "0.08em",
   },
@@ -870,7 +870,7 @@ const S = {
     border: "1px solid transparent",
     borderBottom: "none",
     background: "transparent",
-    color: "#555",
+    color: "#B5B5B5",
     cursor: "pointer",
     fontSize: 14,
     fontWeight: 600,
@@ -944,7 +944,7 @@ const S = {
   cardId: {
     fontFamily: "'DM Mono', monospace",
     fontSize: 11,
-    color: "#444",
+    color: "#A0A0A0",
     background: "#141414",
     padding: "2px 8px",
     borderRadius: 4,
@@ -975,7 +975,7 @@ const S = {
     color: "#e8e8e8",
     lineHeight: 1.35,
   },
-  cardSummary: { margin: 0, fontSize: 13, color: "#555", lineHeight: 1.55 },
+  cardSummary: { margin: 0, fontSize: 13, color: "#B5B5B5", lineHeight: 1.55 },
   textInput: {
     width: "100%",
     padding: "9px 12px",
@@ -1021,7 +1021,7 @@ const S = {
     borderRadius: 7,
     border: "1px solid #2a2a2a",
     background: "transparent",
-    color: "#666",
+    color: "#C5C5C5",
     cursor: "pointer",
     fontSize: 12,
     fontWeight: 600,
@@ -1071,9 +1071,9 @@ const S = {
     fontFamily: "'Syne', sans-serif",
     fontSize: 18,
     fontWeight: 700,
-    color: "#333",
+    color: "#8A8A8A",
   },
-  emptySub: { fontSize: 13, color: "#333" },
+  emptySub: { fontSize: 13, color: "#8A8A8A" },
   toast: {
     position: "fixed",
     bottom: 80,
@@ -1112,7 +1112,7 @@ const S = {
     animation: "spin 0.8s linear infinite",
   },
   loadingText: {
-    color: "#444",
+    color: "#A0A0A0",
     fontSize: 14,
     fontFamily: "'DM Mono', monospace",
   },

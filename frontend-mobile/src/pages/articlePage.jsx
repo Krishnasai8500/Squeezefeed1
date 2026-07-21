@@ -343,7 +343,7 @@ export default function ArticlePage() {
               {comments.length === 0 ? (
                 <p
                   style={{
-                    color: "#444",
+                    color: "#A0A0A0",
                     fontSize: "14px",
                     textAlign: "center",
                     padding: "24px 0",
@@ -516,12 +516,12 @@ const S = {
     flexWrap: "wrap",
     marginBottom: "24px",
   },
-  metaItem: { color: "#555", fontSize: "13px" },
-  metaDot: { color: "#333", fontSize: "13px" },
+  metaItem: { color: "#B5B5B5", fontSize: "13px" },
+  metaDot: { color: "#8A8A8A", fontSize: "13px" },
   langBadge: {
     background: "#1a1a1a",
     border: "1px solid rgba(255,255,255,0.06)",
-    color: "#555",
+    color: "#B5B5B5",
     fontSize: "11px",
     padding: "2px 8px",
     borderRadius: "4px",
@@ -717,7 +717,7 @@ const S = {
     fontFamily: "'Playfair Display', serif",
   },
   ctaSub: {
-    color: "#555",
+    color: "#B5B5B5",
     fontSize: "13px",
     lineHeight: "1.4",
   },

@@ -88,14 +88,14 @@ export default function AdminReportsPage() {
             >
               🚩 User Reports
             </h2>
-            <p style={{ color: "#444", fontSize: "12px", margin: "4px 0 0" }}>
+            <p style={{ color: "#A0A0A0", fontSize: "12px", margin: "4px 0 0" }}>
               {reports.length} report{reports.length !== 1 ? "s" : ""} pending
             </p>
           </div>
         </div>
 
         {loading && (
-          <p style={{ color: "#555", textAlign: "center", marginTop: "60px" }}>
+          <p style={{ color: "#B5B5B5", textAlign: "center", marginTop: "60px" }}>
             Loading...
           </p>
         )}
@@ -105,7 +105,7 @@ export default function AdminReportsPage() {
             style={{
               textAlign: "center",
               marginTop: "80px",
-              color: "#333",
+              color: "#8A8A8A",
               fontSize: "14px",
             }}
           >
@@ -146,7 +146,7 @@ export default function AdminReportsPage() {
               >
                 🚩 Report #{r.id}
               </span>
-              <span style={{ color: "#444", fontSize: "11px" }}>
+              <span style={{ color: "#A0A0A0", fontSize: "11px" }}>
                 {r.createdAt?.slice(0, 10)}
               </span>
             </div>
@@ -222,7 +222,7 @@ export default function AdminReportsPage() {
                 style={{
                   background: "transparent",
                   border: "1px solid rgba(255,255,255,0.08)",
-                  color: "#555",
+                  color: "#B5B5B5",
                   borderRadius: "999px",
                   padding: "7px 16px",
                   cursor: "pointer",

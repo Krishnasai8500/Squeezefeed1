@@ -108,7 +108,7 @@ export default function SavedPage() {
               <div style={S.empty}>
                 <div style={{ fontSize: "40px", marginBottom: "12px" }}>📭</div>
                 <p>No saved articles yet.</p>
-                <p style={{ color: "#444", fontSize: "13px" }}>
+                <p style={{ color: "#A0A0A0", fontSize: "13px" }}>
                   Hit 🔖 on any article to save it.
                 </p>
               </div>
@@ -132,7 +132,7 @@ export default function SavedPage() {
               <div style={S.empty}>
                 <div style={{ fontSize: "40px", marginBottom: "12px" }}>🤣</div>
                 <p>No saved memes yet.</p>
-                <p style={{ color: "#444", fontSize: "13px" }}>
+                <p style={{ color: "#A0A0A0", fontSize: "13px" }}>
                   Hit 🔖 on any meme to save it here.
                 </p>
               </div>
@@ -329,7 +329,7 @@ const S = {
 
   empty: {
     textAlign: "center",
-    color: "#555",
+    color: "#B5B5B5",
     fontSize: "15px",
     marginTop: "60px",
     lineHeight: 1.6,

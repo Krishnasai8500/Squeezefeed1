@@ -307,7 +307,7 @@ export default function UserSearchPage() {
                   </div>
                   <div
                     style={{
-                      color: "#555",
+                      color: "#B5B5B5",
                       fontSize: "16px",
                       fontWeight: "700",
                     }}
@@ -316,7 +316,7 @@ export default function UserSearchPage() {
                   </div>
                   <div
                     style={{
-                      color: "#333",
+                      color: "#8A8A8A",
                       fontSize: "12px",
                       marginTop: "6px",
                     }}
@@ -405,7 +405,7 @@ const S = {
     margin: "0 0 6px",
     letterSpacing: "-0.5px",
   },
-  sub: { fontSize: "13px", color: "#444", marginBottom: "24px" },
+  sub: { fontSize: "13px", color: "#A0A0A0", marginBottom: "24px" },
   searchWrap: {
     position: "relative",
     borderRadius: "14px",
@@ -452,7 +452,7 @@ const S = {
     borderRadius: "999px",
     background: "transparent",
     border: "1px solid rgba(255,255,255,0.08)",
-    color: "#555",
+    color: "#B5B5B5",
     fontSize: "12px",
     fontWeight: "600",
     cursor: "pointer",
@@ -532,7 +532,7 @@ const S = {
   chip: {
     background: "rgba(255,255,255,0.04)",
     border: "1px solid rgba(255,255,255,0.06)",
-    color: "#555",
+    color: "#B5B5B5",
     padding: "4px 10px",
     borderRadius: "999px",
     fontSize: "11px",

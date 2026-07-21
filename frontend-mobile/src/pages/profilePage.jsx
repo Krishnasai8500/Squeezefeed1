@@ -608,8 +608,8 @@ export default function ProfilePage() {
   const articlesRead = profile.articlesRead || 0;
   const autoFrame = resolveFrame(articlesRead);
 
-  return (
-    <>
+return (
+  <div className="no-select">
       <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap');
 
@@ -870,7 +870,7 @@ export default function ProfilePage() {
                     <div
                       style={{
                         fontSize: 10,
-                        color: "#333",
+                        color: "#8A8A8A",
                         letterSpacing: "0.06em",
                       }}
                     >
@@ -883,7 +883,7 @@ export default function ProfilePage() {
           ) : (
             <div style={S.emptyState}>
               <span style={{ fontSize: 28 }}>🎯</span>
-              <span style={{ fontSize: 13, color: "#333", marginTop: 8 }}>
+              <span style={{ fontSize: 13, color: "#8A8A8A", marginTop: 8 }}>
                 Keep reading to earn badges
               </span>
             </div>
@@ -996,7 +996,7 @@ export default function ProfilePage() {
       </div>
 
       <BottomNav />
-    </>
+    </div>
   );
 }
 
@@ -1220,7 +1220,7 @@ const S = {
   chip: {
     background: "rgba(255,255,255,0.03)",
     border: "1px solid rgba(255,255,255,0.08)",
-    color: "#555",
+    color: "#B5B5B5",
     padding: "7px 15px",
     borderRadius: 999,
     fontSize: 12,

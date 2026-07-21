@@ -386,7 +386,7 @@ const S = {
   markAllBtn: {
     background: "none",
     border: "none",
-    color: "#555",
+    color: "#B5B5B5",
     fontSize: "12px",
     fontWeight: "600",
     cursor: "pointer",
@@ -416,7 +416,7 @@ const S = {
     borderRadius: "999px",
     background: "transparent",
     border: "1px solid rgba(255,255,255,0.08)",
-    color: "#555",
+    color: "#B5B5B5",
     fontSize: "12px",
     fontWeight: "600",
     cursor: "pointer",
@@ -463,7 +463,7 @@ const S = {
     marginBottom: "8px",
   },
   emptySubtext: {
-    color: "#444",
+    color: "#A0A0A0",
     fontSize: "13px",
     lineHeight: "1.6",
     maxWidth: "260px",
@@ -523,7 +523,7 @@ const S = {
     letterSpacing: "0.08em",
     textTransform: "uppercase",
   },
-  notifTime: { color: "#333", fontSize: "11px" },
+  notifTime: { color: "#8A8A8A", fontSize: "11px" },
   notifTitle: {
     fontFamily: "'Space Grotesk', sans-serif",
     fontSize: "14px",
@@ -533,7 +533,7 @@ const S = {
     marginBottom: "4px",
   },
   notifMessage: {
-    color: "#555",
+    color: "#B5B5B5",
     fontSize: "12px",
     lineHeight: "1.6",
   },

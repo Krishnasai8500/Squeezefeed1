@@ -55,3 +55,9 @@ body,
     box-shadow: 0 0 10px rgba(255, 149, 0, 0.5);
   }
 }
+
+.no-select {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}

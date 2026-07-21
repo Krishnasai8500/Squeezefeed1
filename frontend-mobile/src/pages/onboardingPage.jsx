@@ -243,7 +243,7 @@ function LocationPermissionModal({ onAllow, onDeny }) {
         <p
           style={{
             fontSize: "13px",
-            color: "#666",
+            color: "#C5C5C5",
             textAlign: "center",
             lineHeight: "1.6",
             marginBottom: "28px",
@@ -279,7 +279,7 @@ function LocationPermissionModal({ onAllow, onDeny }) {
               style={{ display: "flex", alignItems: "center", gap: "10px" }}
             >
               <span style={{ fontSize: "15px" }}>{icon}</span>
-              <span style={{ fontSize: "12px", color: "#555" }}>{text}</span>
+              <span style={{ fontSize: "12px", color: "#B5B5B5" }}>{text}</span>
             </div>
           ))}
         </div>
@@ -312,7 +312,7 @@ function LocationPermissionModal({ onAllow, onDeny }) {
               borderRadius: "14px",
               border: "1.5px solid rgba(255,255,255,0.07)",
               background: "transparent",
-              color: "#444",
+              color: "#A0A0A0",
               fontSize: "14px",
               fontWeight: "600",
               fontFamily: "'DM Sans', sans-serif",
@@ -399,7 +399,7 @@ function LocationDeniedModal({ onClose, onManual }) {
         <p
           style={{
             fontSize: "13px",
-            color: "#666",
+            color: "#C5C5C5",
             textAlign: "center",
             lineHeight: "1.6",
             margin: "0 auto 24px",
@@ -451,7 +451,7 @@ function LocationDeniedModal({ onClose, onManual }) {
               >
                 {step}
               </div>
-              <span style={{ fontSize: "12px", color: "#555" }}>{text}</span>
+              <span style={{ fontSize: "12px", color: "#B5B5B5" }}>{text}</span>
             </div>
           ))}
         </div>
@@ -482,7 +482,7 @@ function LocationDeniedModal({ onClose, onManual }) {
               borderRadius: "14px",
               border: "1.5px solid rgba(255,255,255,0.07)",
               background: "transparent",
-              color: "#444",
+              color: "#A0A0A0",
               fontSize: "14px",
               fontWeight: "600",
               fontFamily: "'DM Sans', sans-serif",
@@ -758,7 +758,7 @@ export default function OnboardingPage() {
                     background:linear-gradient(90deg,#FF6A00,#ff9a56);
                     transition: width 0.6s cubic-bezier(0.34,1.56,0.64,1);
                 }
-                .ob-step-label { font-size:11px; font-weight:700; color:#333; letter-spacing:0.1em; white-space:nowrap; }
+                .ob-step-label { font-size:11px; font-weight:700; color:#8A8A8A; letter-spacing:0.1em; white-space:nowrap; }
                 .ob-step-label.active { color:#FF6A00; }
 
                 /* Header */
@@ -780,10 +780,10 @@ export default function OnboardingPage() {
                     -webkit-background-clip:text; -webkit-text-fill-color:transparent;
                     animation:shimmer 2.5s linear infinite;
                 }
-                .ob-sub { color:#444; font-size:14px; margin-top:10px; line-height:1.5; }
+                .ob-sub { color:#A0A0A0; font-size:14px; margin-top:10px; line-height:1.5; }
                 .ob-section-label {
                     font-size:11px; font-weight:700; letter-spacing:0.18em;
-                    text-transform:uppercase; color:#333; margin-bottom:14px;
+                    text-transform:uppercase; color:#8A8A8A; margin-bottom:14px;
                 }
 
                 /* Language */
@@ -792,7 +792,7 @@ export default function OnboardingPage() {
                     flex:1; padding:12px 0; border-radius:14px;
                     font-family:'DM Sans',sans-serif; font-size:14px; font-weight:600;
                     cursor:pointer; border:1.5px solid rgba(255,255,255,0.07);
-                    background:#111; color:#555; transition:all 0.2s ease; text-align:center;
+                    background:#111; color:#B5B5B5; transition:all 0.2s ease; text-align:center;
                 }
                 .lang-pill.active {
                     border-color:#FF6A00; background:rgba(255,106,0,0.1); color:#FF6A00;
@@ -838,7 +838,7 @@ export default function OnboardingPage() {
                     font-size:10px; color:#000; font-weight:900; z-index:2;
                     animation:popIn 0.3s cubic-bezier(0.34,1.56,0.64,1) both;
                 }
-                .cat-label { font-size:11px; font-weight:600; color:#444; text-align:center; transition:color 0.2s; line-height:1.2; }
+                .cat-label { font-size:11px; font-weight:600; color:#A0A0A0; text-align:center; transition:color 0.2s; line-height:1.2; }
                 .cat-item.selected .cat-label { color:#e0e0e0; }
 
                 /* Counter */
@@ -848,7 +848,7 @@ export default function OnboardingPage() {
                     background:rgba(255,106,0,0.1); border:1px solid rgba(255,106,0,0.2);
                     padding:4px 12px; border-radius:999px; transition:all 0.2s;
                 }
-                .counter-hint { font-size:12px; color:#333; }
+                .counter-hint { font-size:12px; color:#8A8A8A; }
 
                 /* CTA */
                 .ob-cta {
@@ -860,7 +860,7 @@ export default function OnboardingPage() {
                 }
                 .ob-cta.ready { background:linear-gradient(135deg,#FF6A00,#ff9a56); color:#000; box-shadow:0 8px 32px rgba(255,106,0,0.35); }
                 .ob-cta.ready:hover { transform:translateY(-2px); box-shadow:0 12px 40px rgba(255,106,0,0.5); }
-                .ob-cta.not-ready { background:#111; color:#333; border:1px solid rgba(255,255,255,0.05); cursor:not-allowed; }
+                .ob-cta.not-ready { background:#111; color:#8A8A8A; border:1px solid rgba(255,255,255,0.05); cursor:not-allowed; }
                 .ob-cta.loading { background:linear-gradient(135deg,#FF6A00,#ff9a56); color:#000; cursor:not-allowed; opacity:0.7; }
                 .ob-spinner { width:18px; height:18px; border:2.5px solid rgba(0,0,0,0.3); border-top-color:#000; border-radius:50%; animation:spin 0.7s linear infinite; }
 
@@ -889,7 +889,7 @@ export default function OnboardingPage() {
                 .notif-card.active .notif-card-icon { animation:notifPulse 2s ease-in-out infinite; }
                 .notif-card-title { font-family:'Syne',sans-serif; font-size:14px; font-weight:700; color:#fff; margin-bottom:4px; }
                 .notif-card.active .notif-card-title { color:#FF6A00; }
-                .notif-card-desc { font-size:11px; color:#444; line-height:1.4; }
+                .notif-card-desc { font-size:11px; color:#A0A0A0; line-height:1.4; }
 
                 /* Location section */
                 .loc-options { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px; }
@@ -908,7 +908,7 @@ export default function OnboardingPage() {
                 .loc-option-title { font-family:'Syne',sans-serif; font-size:13px; font-weight:700; color:#fff; }
                 .loc-option-btn.active-gps .loc-option-title { color:#55efc4; }
                 .loc-option-btn.active-manual .loc-option-title { color:#FF6A00; }
-                .loc-option-desc { font-size:10px; color:#444; line-height:1.3; }
+                .loc-option-desc { font-size:10px; color:#A0A0A0; line-height:1.3; }
 
                 /* GPS status */
                 .gps-status-box {
@@ -941,23 +941,23 @@ export default function OnboardingPage() {
                     font-family:'DM Sans',sans-serif; outline:none;
                     transition:all 0.2s ease; -webkit-appearance:none; appearance:none;
                 }
-                .sf-input::placeholder { color:#333; }
+                .sf-input::placeholder { color:#8A8A8A; }
                 .sf-input:focus { border-color:#FF6A00; background:rgba(255,106,0,0.04); box-shadow:0 0 0 3px rgba(255,106,0,0.08); }
                 .sf-input option { background:#111; color:#fff; }
 
                 /* Skip */
                 .skip-loc-btn {
-                    background:none; border:none; color:#333; font-size:12px;
+                    background:none; border:none; color:#8A8A8A; font-size:12px;
                     font-family:'DM Sans',sans-serif; font-weight:600;
                     cursor:pointer; text-align:center; width:100%;
                     padding:8px; transition:color 0.2s; margin-bottom:20px;
                     display:block;
                 }
-                .skip-loc-btn:hover { color:#666; }
+                .skip-loc-btn:hover { color:#C5C5C5; }
 
                 /* Back */
                 .ob-back {
-                    background:none; border:none; color:#444; font-size:13px;
+                    background:none; border:none; color:#A0A0A0; font-size:13px;
                     font-family:'DM Sans',sans-serif; font-weight:600; cursor:pointer;
                     display:flex; align-items:center; gap:6px;
                     padding:0; margin-bottom:32px; transition:color 0.2s; letter-spacing:0.02em;
@@ -1127,7 +1127,7 @@ export default function OnboardingPage() {
                 Location
                 <span
                   style={{
-                    color: "#333",
+                    color: "#8A8A8A",
                     fontSize: "10px",
                     letterSpacing: "0.1em",
                     marginLeft: "8px",

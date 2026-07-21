@@ -169,7 +169,7 @@ function OtpRow({
             )}
           </button>
           {otpSent && !otpVerified && (
-            <span style={{ color: "#555", fontSize: "11px" }}>
+            <span style={{ color: "#B5B5B5", fontSize: "11px" }}>
               Check your inbox
             </span>
           )}
@@ -459,7 +459,7 @@ export default function LoginPage() {
                 }
 
                 .sf-input { color: #ffffff !important; }
-                .sf-input::placeholder { color: #555 !important; }
+                .sf-input::placeholder { color: #B5B5B5 !important; }
                 .sf-input:focus {
                     border-color: rgba(255,106,0,0.6) !important;
                     background: rgba(255,106,0,0.05) !important;
@@ -841,7 +841,7 @@ export default function LoginPage() {
                       {validatePassword(form.password).map((e, i) => (
                         <span
                           key={i}
-                          style={{ color: "#666", fontSize: "11px" }}
+                          style={{ color: "#C5C5C5", fontSize: "11px" }}
                         >
                           ✗ {e}
                         </span>
@@ -901,7 +901,7 @@ export default function LoginPage() {
               {!regOtpVerified && (
                 <p
                   style={{
-                    color: "#444",
+                    color: "#A0A0A0",
                     fontSize: "11px",
                     textAlign: "center",
                     margin: "0",
@@ -935,7 +935,7 @@ export default function LoginPage() {
                   </div>
                   <div
                     style={{
-                      color: "#666",
+                      color: "#C5C5C5",
                       fontSize: "13px",
                       marginBottom: "20px",
                     }}
@@ -1301,7 +1301,7 @@ const S = {
     lineHeight: 1,
   },
   logoSub: {
-    color: "#444",
+    color: "#A0A0A0",
     fontSize: "10px",
     fontWeight: "500",
     letterSpacing: "0.08em",
@@ -1325,7 +1325,7 @@ const S = {
     animation: "lineExpand 0.8s ease 0.3s both",
   },
   subtitle: {
-    color: "#666",
+    color: "#C5C5C5",
     fontSize: "13px",
     margin: 0,
     letterSpacing: "0.01em",
@@ -1403,7 +1403,7 @@ const S = {
   },
   dividerLine: { flex: 1, height: "1px", background: "rgba(255,255,255,0.06)" },
   dividerText: {
-    color: "#333",
+    color: "#8A8A8A",
     fontSize: "11px",
     fontWeight: "600",
     letterSpacing: "0.1em",
@@ -1417,7 +1417,7 @@ const S = {
     gap: "8px",
     marginTop: "20px",
   },
-  toggleText: { color: "#555", fontSize: "13px" },
+  toggleText: { color: "#B5B5B5", fontSize: "13px" },
   toggleBtn: {
     background: "none",
     border: "none",

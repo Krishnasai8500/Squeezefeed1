@@ -96,7 +96,7 @@ function BarChart({
               }}
             >
               <div
-                style={{ fontSize: "9px", color: "#555", fontWeight: "600" }}
+                style={{ fontSize: "9px", color: "#B5B5B5", fontWeight: "600" }}
               >
                 {val}
               </div>
@@ -114,7 +114,7 @@ function BarChart({
               <div
                 style={{
                   fontSize: "9px",
-                  color: "#444",
+                  color: "#A0A0A0",
                   transform: "rotate(-40deg)",
                   transformOrigin: "top center",
                   whiteSpace: "nowrap",
@@ -702,7 +702,7 @@ export default function AdminAnalyticsPage() {
                             <td
                               style={{
                                 ...C.td,
-                                color: "#555",
+                                color: "#B5B5B5",
                                 fontFamily: "'DM Mono',monospace",
                               }}
                             >
@@ -756,7 +756,7 @@ export default function AdminAnalyticsPage() {
                     <div
                       style={{
                         fontSize: "12px",
-                        color: "#333",
+                        color: "#8A8A8A",
                         marginTop: "8px",
                       }}
                     >
@@ -837,7 +837,7 @@ export default function AdminAnalyticsPage() {
                       <div
                         style={{
                           fontSize: "11px",
-                          color: "#444",
+                          color: "#A0A0A0",
                           marginTop: "4px",
                         }}
                       >
@@ -852,7 +852,7 @@ export default function AdminAnalyticsPage() {
                       <div
                         style={{
                           fontSize: "11px",
-                          color: "#444",
+                          color: "#A0A0A0",
                           marginTop: "4px",
                         }}
                       >
@@ -867,7 +867,7 @@ export default function AdminAnalyticsPage() {
                       <div
                         style={{
                           fontSize: "11px",
-                          color: "#444",
+                          color: "#A0A0A0",
                           marginTop: "4px",
                         }}
                       >
@@ -896,7 +896,7 @@ export default function AdminAnalyticsPage() {
                       <div
                         style={{
                           fontSize: "11px",
-                          color: "#444",
+                          color: "#A0A0A0",
                           marginTop: "4px",
                         }}
                       >
@@ -1091,7 +1091,7 @@ const C = {
     borderRadius: "8px",
     border: "1px solid transparent",
     background: "transparent",
-    color: "#444",
+    color: "#A0A0A0",
     fontSize: "13px",
     fontWeight: "600",
     cursor: "pointer",
@@ -1161,12 +1161,12 @@ const C = {
   },
   chartLabel: {
     fontSize: "11px",
-    color: "#444",
+    color: "#A0A0A0",
     marginBottom: "8px",
     letterSpacing: "0.06em",
   },
   emptyChart: {
-    color: "#333",
+    color: "#8A8A8A",
     fontSize: "13px",
     textAlign: "center",
     padding: "40px 0",
@@ -1238,7 +1238,7 @@ const C = {
     textAlign: "center",
   },
   infoLabel: {
-    color: "#444",
+    color: "#A0A0A0",
     fontSize: "11px",
     fontWeight: "600",
     letterSpacing: "0.08em",
@@ -1255,7 +1255,7 @@ const C = {
   emptyState: {
     textAlign: "center",
     padding: "48px 0",
-    color: "#444",
+    color: "#A0A0A0",
     fontSize: "13px",
   },
 

@@ -238,7 +238,7 @@ export default function FeedbackPage() {
               />
               <div style={S.charCount}>
                 <span
-                  style={{ color: message.length > 900 ? "#ef4444" : "#333" }}
+                  style={{ color: message.length > 900 ? "#ef4444" : "#8A8A8A" }}
                 >
                   {message.length}/1000
                 </span>
@@ -430,7 +430,7 @@ const S = {
     fontFamily: "'Space Grotesk', sans-serif",
   },
   catDesc: {
-    color: "#444",
+    color: "#A0A0A0",
     fontSize: 11,
   },
   catCheck: {
@@ -555,7 +555,7 @@ const S = {
     letterSpacing: "-0.3px",
   },
   successSub: {
-    color: "#444",
+    color: "#A0A0A0",
     fontSize: 14,
     lineHeight: 1.6,
     margin: "0 0 28px",

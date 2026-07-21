@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import he from "he";
 import {
   saveArticle,
   unsaveArticle,
@@ -234,13 +235,14 @@ export default function ArticleCard({
     }
   }
 
-  function getLocalizedTitle() {
-    if (selectedLanguage === "en") {
-      return article.translatedTitle?.en || article.title;
-    }
+function getLocalizedTitle() {
+  const title =
+    selectedLanguage === "en"
+      ? article.translatedTitle?.en || article.title
+      : article.translatedTitle?.[selectedLanguage] || article.title;
 
-    return article.translatedTitle?.[selectedLanguage] || article.title;
-  }
+  return he.decode(title || "");
+}
   function getLocalizedSummary() {
     if (selectedLanguage === "en") {
       return article.translatedSummary?.en || article.summary;
@@ -251,7 +253,7 @@ export default function ArticleCard({
 
   //     const summaryText = getLocalizedSummary() || "";
 
-  const summaryText = (getLocalizedSummary() || "")
+const summaryText = he.decode(getLocalizedSummary() || "")
     .replace(/\s*[\u2026\.]{3}\s*/g, " ")
     .replace(/\s*…\s*/g, " ");
 
@@ -334,6 +336,9 @@ export default function ArticleCard({
                   ref={titleRef}
                   style={{
                     ...S.title,
+                     userSelect: "none",
+                    WebkitUserSelect: "none",
+                    WebkitTouchCallout: "none",
                     fontSize:
                       selectedLanguage === "te"
                         ? "15px"
@@ -348,6 +353,9 @@ export default function ArticleCard({
                   ref={summaryRef}
                   style={{
                     ...S.summary,
+                     userSelect: "none",
+                    WebkitUserSelect: "none",
+                    WebkitTouchCallout: "none",
                     fontSize:
                       selectedLanguage === "te"
                         ? "13px"
@@ -405,7 +413,7 @@ export default function ArticleCard({
                 >
                   <BookmarkIcon filled={saved} />
                   <span
-                    style={{ ...S.btnLabel, color: saved ? "#4ade80" : "#666" }}
+                    style={{ ...S.btnLabel, color: saved ? "#4ade80" : "#C5C5C5" }}
                   >
                     {saved ? "Saved" : "Save"}
                   </span>
@@ -665,7 +673,7 @@ function CommentIcon() {
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
       <path
         d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-        stroke="#666"
+        stroke="#C5C5C5"
         strokeWidth="1.8"
         strokeLinejoin="round"
       />
@@ -678,7 +686,7 @@ function BookmarkIcon({ filled }) {
       <path
         d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"
         fill={filled ? "#4ade80" : "none"}
-        stroke={filled ? "#4ade80" : "#666"}
+        stroke={filled ? "#4ade80" : "#C5C5C5"}
         strokeWidth="1.8"
         strokeLinejoin="round"
       />
@@ -690,7 +698,7 @@ function ShareIcon() {
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
       <path
         d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"
-        stroke="#666"
+        stroke="#C5C5C5"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -834,7 +842,7 @@ const S = {
   btnLabel: {
     fontSize: "12px",
     fontWeight: "600",
-    color: "#555",
+    color: "#B5B5B5",
     letterSpacing: "0.02em",
   },
   readBtn: {

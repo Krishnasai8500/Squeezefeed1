@@ -194,7 +194,7 @@ const styles = {
   },
   lockedCard: {
     background: "#111",
-    border: "1px solid #333",
+    border: "1px solid #8A8A8A",
     borderRadius: "18px",
     padding: "20px",
     textAlign: "center",
@@ -217,7 +217,7 @@ const styles = {
     lineHeight: "1.5",
   },
   unlocked: { color: "#ff9500", marginTop: "16px", fontWeight: "bold" },
-  locked: { color: "#666", marginTop: "16px" },
+  locked: { color: "#C5C5C5", marginTop: "16px" },
   loading: {
     background: "#000",
     color: "#fff",

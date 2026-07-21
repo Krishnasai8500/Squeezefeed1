@@ -452,7 +452,7 @@ export default function HomePage() {
           {/* Tagline */}
           <p
             style={{
-              color: "#333",
+              color: "#8A8A8A",
               fontSize: "12px",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
@@ -588,7 +588,7 @@ const styles = {
     minHeight: "100vh",
   },
   loadingMore: {
-    color: "#555",
+    color: "#B5B5B5",
     textAlign: "center",
     padding: "24px",
     fontSize: "14px",

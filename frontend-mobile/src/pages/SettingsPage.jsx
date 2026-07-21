@@ -277,7 +277,7 @@ export default function SettingsPage() {
                           style={{
                             fontSize: "12px",
                             fontWeight: "600",
-                            color: selected ? "#FF6A00" : "#666",
+                            color: selected ? "#FF6A00" : "#C5C5C5",
                           }}
                         >
                           {cat.label}
@@ -540,7 +540,7 @@ const S = {
     padding: "14px 8px",
     background: "transparent",
     border: "none",
-    color: "#444",
+    color: "#A0A0A0",
     fontSize: "12px",
     fontWeight: "600",
     cursor: "pointer",
@@ -573,7 +573,7 @@ const S = {
   },
   sectionSub: {
     fontSize: "12px",
-    color: "#444",
+    color: "#A0A0A0",
     marginBottom: "16px",
   },
   divider: {
@@ -647,7 +647,7 @@ const S = {
   },
   toggleSub: {
     fontSize: "11px",
-    color: "#444",
+    color: "#A0A0A0",
     marginTop: "2px",
   },
   toggle: {
@@ -717,7 +717,7 @@ const S = {
   },
   infoKey: {
     fontSize: "13px",
-    color: "#555",
+    color: "#B5B5B5",
     fontWeight: "500",
   },
   infoVal: {
@@ -756,7 +756,7 @@ const S = {
   },
   dangerSub: {
     fontSize: "11px",
-    color: "#555",
+    color: "#B5B5B5",
     marginTop: "4px",
     lineHeight: "1.5",
   },
@@ -794,7 +794,7 @@ const S = {
     letterSpacing: "-0.3px",
   },
   aboutTagline: {
-    color: "#444",
+    color: "#A0A0A0",
     fontSize: "12px",
     letterSpacing: "0.06em",
     textAlign: "center",
@@ -825,7 +825,7 @@ const S = {
     color: "#888",
     fontWeight: "500",
   },
-  linkArrow: { color: "#333", fontSize: "20px" },
+  linkArrow: { color: "#8A8A8A", fontSize: "20px" },
   copyright: {
     textAlign: "center",
     color: "#1f1f1f",

@@ -164,6 +164,6 @@ const styles = {
     alignItems: "center",
     marginTop: "auto", // ✅ push meta to bottom of content
   },
-  author: { color: "#666", fontSize: "12px" },
-  date: { color: "#666", fontSize: "12px" },
+  author: { color: "#C5C5C5", fontSize: "12px" },
+  date: { color: "#C5C5C5", fontSize: "12px" },
 };
